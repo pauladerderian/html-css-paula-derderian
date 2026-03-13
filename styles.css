@@ -113,10 +113,11 @@ li {
     white-space: nowrap;
 }
 
+/*Search Default*/
 .search-box{
    position: relative;
    display: inline-block;
-   margin: 4px 24px 8px auto;
+   margin: 4px 24px 8px 64px;
 }
 
 .search-box input{
@@ -150,6 +151,17 @@ li {
 input::placeholder{
     color: #494C4D50;
 }
+
+/*Search Hover CORREGIR*/
+.search-box:hover{
+    border: 1px solid #1E1E1E;
+}
+
+.search-icon:hover{
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%231E1E1E30' fill-rule='evenodd' d='m16.31 15.561l4.114 4.115l-.848.848l-4.123-4.123a7 7 0 1 1 .857-.84M16.8 11a5.8 5.8 0 1 0-11.6 0a5.8 5.8 0 0 0 11.6 0'/%3E%3C/svg%3E");
+}
+/*Search Clicked*/
+
 
 .profile .profile-icon{
     width: 40px;
