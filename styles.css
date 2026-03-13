@@ -76,8 +76,12 @@ a {
 .home-logo {
     display: flex;
     align-items: center;
-    padding-bottom: 12px;
     margin: 0 64px;
+}
+
+.home-logo img{
+    padding-bottom: 8px;
+    margin: 16px;
 }
 
 .nav-left{
