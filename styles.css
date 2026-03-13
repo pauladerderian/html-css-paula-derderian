@@ -13,18 +13,30 @@
 
 html, body {
   height: 100%;
+  width: 100%;
 }
 
 body {
     font-family: "DIN PRO";
     margin: 24px 0px 0px 0px;
     color: #1E1E1E;
-    box-shadow: inset 0 8px 8px rgba(0, 0, 0, 0.25);
     background:url(images/background-photo.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    
+    width: 100%;
+}
+
+body::before{
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 24px;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), transparent);
+    z-index: 0;
+
 }
 
 header{
@@ -32,6 +44,8 @@ header{
     height: 72px;
     width: 100%;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    position: relative;
+    z-index: 1;
 }
 
 .nav-bar {
