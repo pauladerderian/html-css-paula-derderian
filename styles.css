@@ -14,8 +14,8 @@
 
 @font-face {
     font-family: "Artico ExtraCond";
-    src: url(font/Artico-ExtraCond/artico-extracond.otf);
-    font-weight: normal;
+    src: url(font/Artico-ExtraCond/cretype\ \ Artico\ ExtraCond\ Bold.otf);
+    font-weight: bold;
     font-style: normal;
 }
 
@@ -380,28 +380,70 @@ h1 {
     }
 
     h1 {
-        font-size: 32px;
-        padding-top: 48px;
+        font-size: 20px;
+        padding-top: 44px;
+        color: #d9d9d9;
+        text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     }
+
+    .logo-default, .logo-hover {
+        display: none !important;
+    }
+
+    .home-logo:hover .logo-default,
+    .home-logo:hover .logo-hover {
+        display: none !important;
+    }
+
 
     .btn {
         width: 140px;
         height: 48px;
-        font-size: 14px;
+        font-size: 12px;
+        background-color: rgba(255, 255, 255, 0.7);
+    }
+
+    .buttons {
+        gap: 24px;
     }
 
     .search-box {
         display: flex;
+        align-items: center;
         margin: 0;
         border: none;
+        flex: 0;
+        position: relative;
+        z-index: 3;
     }
 
     .search-box input {
         display: none;
     }
 
+    .search-box .search-icon {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%231E1E1E' fill-rule='evenodd' d='m16.31 15.561l4.114 4.115l-.848.848l-4.123-4.123a7 7 0 1 1 .857-.84M16.8 11a5.8 5.8 0 1 0-11.6 0a5.8 5.8 0 0 0 11.6 0'/%3E%3C/svg%3E");
+        width: 24px;
+        height: 24px;
+    }
 
-    /* Burger Menu */
+    .cart-icon-outline {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%231E1E1E' fill-rule='evenodd' d='M8 7V6a4 4 0 1 1 8 0v1h3c.552 0 1 .449 1 1.007v12.001c0 1.1-.895 1.992-1.994 1.992H5.994A1.994 1.994 0 0 1 4 20.008v-12C4 7.45 4.445 7 5 7zm1.2 0h5.6V6a2.8 2.8 0 0 0-5.6 0zM8 8.2H5.2v11.808c0 .436.356.792.794.792h12.012a.794.794 0 0 0 .794-.792V8.2H16V11h-1.2V8.2H9.2V11H8z'/%3E%3C/svg%3E");
+        width: 24px;
+        height: 24px;
+    }
+
+    .cart-count {
+        width: 18px;
+        height: 18px;
+        font-size: 10px;
+        top: -4px;
+        right: -6px;
+    }
+
+
+
+    /* Menu */
     .burger {
         display: flex;
         flex-direction: row;
@@ -428,6 +470,17 @@ h1 {
         margin: 0;
     }
 
+    .home-logo::after {
+        content: "RAINYDAYS";
+        font-family: "Artico ExtraCond";
+        font-size: 24px;
+        font-weight: bold;
+        letter-spacing: 2px;
+        color: transparent;
+        -webkit-text-stroke: 1px #1E1E1E;
+    }
+    
+
     /* hidden desktop nav-bar */
     .nav-left {
         display: none;
@@ -445,7 +498,8 @@ h1 {
         order: 3;
         flex: 0;
         gap: 16px;
-        padding: 0 8px;
+        padding: 0;
+        margin-left: auto;
     }
 
     /* Mobile Dropdown */
