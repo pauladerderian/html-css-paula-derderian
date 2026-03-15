@@ -1,14 +1,21 @@
 @font-face{
     font-family: "Din Pro";
-    src: url(font/dinpro.otf);
+    src: url(font/Din-Pro/dinpro.otf);
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: "Din Pro";
-    src: url(font/dinpro_bold.otf);
+    src: url(font/Din-Pro/dinpro_bold.otf);
     font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Artico ExtraCond";
+    src: url(font/Artico-ExtraCond/artico-extracond.otf);
+    font-weight: normal;
     font-style: normal;
 }
 
@@ -19,7 +26,7 @@
 }
 
 html{
-  min-width: 1024px;
+  min-width: 320px;
 }
 
 body {
@@ -27,7 +34,7 @@ body {
     font-family: "DIN PRO";
     margin: 0;
     color: #1E1E1E;
-    background:url(images/background-photo.jpg);
+    background-image: url(images/background-photo.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -106,6 +113,7 @@ a {
     left: 50%;
     transform: translateX(-50%);
     z-index: 2;
+    touch-action: manipulation;
 }
 
 .home-logo img{
@@ -352,6 +360,47 @@ h1 {
 /* Mobile */
 @media (max-width: 768px) {
 
+    body {
+        background-image: none;
+        position: relative;
+    }
+
+    body::after{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url(images/background-mobile.png);
+        background-repeat: no-repeat;
+        background-position-x: 30%;
+        background-position-y: 135%;
+        z-index: -1;
+    }
+
+    h1 {
+        font-size: 32px;
+        padding-top: 48px;
+    }
+
+    .btn {
+        width: 140px;
+        height: 48px;
+        font-size: 14px;
+    }
+
+    .search-box {
+        display: flex;
+        margin: 0;
+        border: none;
+    }
+
+    .search-box input {
+        display: none;
+    }
+
+
     /* Burger Menu */
     .burger {
         display: flex;
@@ -372,25 +421,16 @@ h1 {
     }
 
     .home-logo {
-        position: relative;
-        left: auto;
-        transform: none;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
         order: 2;
-        margin: 0 auto;
+        margin: 0;
     }
 
     /* hidden desktop nav-bar */
     .nav-left {
         display: none;
-    }
-
-    .search-box input {
-        display: none;
-    }
-
-    .search-box {
-        display: none;
-        margin: 0;
     }
 
     .cart-text {
@@ -447,8 +487,7 @@ h1 {
     .nav-bar {
         position: relative;
         flex-wrap: nowrap;
-        padding: 0 16px;
+        padding: 0 24px;
     }
 
 }
-
