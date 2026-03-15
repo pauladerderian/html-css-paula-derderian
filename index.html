@@ -11,16 +11,30 @@
     <header> 
     <!--Navigation Bar-->
         <nav class="nav-bar">
+            <!-- checkbox for toggle -->
+             <input type="checkbox" id="nav-toggle" class="nav-toggle">
+
+             <!-- Desktop Menu Left -->
             <ul class="nav-left">
-                <li><a href="#" aria-label="women clothes"> Women</a></li>
-                <li><a href="#" aria-label="men clothes">Men</a></li>
+                <li><a href="#" aria-label="Shop Women's Clothing"> Women</a></li>
+                <li><a href="#" aria-label="Shop Men's Clothing">Men</a></li>
                 <li><a href="#" aria-label="gear">Gear</a></li>
                 <li><a href="#" aria-label="contact us">Contact Us</a></li>
             </ul>
+            <!-- Burger Menu Mobile -->
+             <label for="nav-toggle" class="burger" aria-label="Open navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+             </label>
+
+             <!-- Logo -->
             <a href="index.html" class="home-logo">
             <img src="images/logo.png" alt="home page brand logo" class="logo-default">
-            <img src="images/logo-hover.png" alt=""home page brand logo" class="logo-hover">
+            <img src="images/logo-hover.png" alt="home page brand logo" class="logo-hover">
             </a>
+
+            <!-- Desktop Menu Right -->
             <ul class="nav-right">
                 <li class="search-box">
                     <input type="text" placeholder="Search for products">
@@ -34,11 +48,35 @@
                         <div class="cart-icon">
                             <span class="cart-icon-outline"></span>
                             <span class="cart-count">0</span>
-                        </div>
-                    
+                        </div>   
                 </li>
             </ul>
+
+            <!-- Mobile Dropdown Menu -->
+             <div class="mobile-menu">
+                <ul class="mobile-nav-links">
+                    <li><a href="#" aria-label="women clothes">Women</a></li>
+                    <li><a href="#" aria-label="men clothes">Men</a></li>
+                    <li><a href="#" aria-label="gear">Gear</a></li>
+                    <li><a href="#" aria-label="Read our blog">Blog</a></li>
+                    <li><a href="#" aria-label="Contact Us">Contact Us</a></li>
+                    <li><a href="#" aria-label="Create an account">Create An Account</a></li>
+                    <li><a href="#" aria-label="log in">Log In</a></li>
+                </ul>
+             </div>
         </nav>
     </header>
+    <main>
+        <section class="hero-section">
+                <h1>Pushing The Comfort Zone</h1>
+            </div>
+            <div class="buttons">
+            <a href="women.html" class="btn" aria-label="Shop Women's Clothing">Shop Women</a>
+            <a href="men.html" class="btn" aria-label="Shop Men's Clothing">Shop Men</a>
+            </div>        
+        </section>
+
+
+    </main>
 </body>
 
