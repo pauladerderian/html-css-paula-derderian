@@ -411,6 +411,13 @@ h2 {
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
 
+/* Footer */
+
+footer {
+    background-color: #A6BECE;
+    padding: 40px 80px 0 80px;
+}
+
 
 /* Mobile */
 @media (max-width: 768px) {
@@ -623,7 +630,7 @@ h2 {
     .blog-section {
         background-image: none;
         background-color: white;
-        height: auto;
+        height: 250px;
         padding: 24px;
     }
 
