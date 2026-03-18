@@ -361,7 +361,7 @@ h1 {
 /* Blog Section */
 
 .blog-section {
-    background-image: url(images/background-blog.png);
+    background-image: url(images/background-blog.webp);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -456,6 +456,7 @@ footer {
     font-weight: bold;
     color: #516E81;
     letter-spacing: 30%;
+    padding-left: 3%;
 }
 
 .footer-logo-text hr {
@@ -578,6 +579,101 @@ footer {
     color: #1E1E1E;
 }
 
+
+/* Women's Clothes */
+
+.women-page {
+    background-image: url(images/women_background.webp);
+    background-position-x: left;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.women-page main {
+    min-height: 100vh;
+    margin: 0;
+}
+
+/* Hero Section */
+
+.women-hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-left: 10vw;
+}
+
+.women-page h1 {
+    font-size: 40px;
+    color: white;
+}
+.women-products {
+    background-color: white;
+    padding: 64px 10vw;
+
+}
+
+.women-page h2 {
+    color: #1E1E1E;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 40px;
+    text-shadow: none;
+}
+
+.women-jackets {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    flex-wrap: wrap;
+    list-style: none;
+}
+
+.women-jackets li {
+    flex: 1;
+    min-width: 250px;
+    position: relative;
+}
+
+/* Product Card */
+
+.product-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-decoration: none;
+    color: #1E1E1E;
+    gap: 8px;
+}
+
+.product-title {
+    display: inline;
+}
+
+.product-title h3 {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.product-title p {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.product-description p {
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.sold-out {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
 /* Mobile */
 @media (max-width: 768px) {
 
@@ -593,7 +689,7 @@ footer {
         left: 0;
         width: 100%;
         min-height: 100vh;
-        background-image: url(images/background-mobile.png);
+        background-image: url(images/background-mobile.webp);
         background-repeat: no-repeat;
         background-size: cover;
         background-position-x: 30%;
