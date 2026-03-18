@@ -590,6 +590,11 @@ footer {
     background-attachment: fixed;
 }
 
+.women-page .nav-bar a[aria-label="Shop Women's Clothing"] {
+    color: #1E1E1E;
+}
+
+
 .women-page main {
     min-height: 100vh;
     margin: 0;
