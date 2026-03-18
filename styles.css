@@ -610,7 +610,7 @@ footer {
 }
 .women-products {
     background-color: white;
-    padding: 64px 10vw;
+    padding: 64px 5vw;
 
 }
 
@@ -626,15 +626,16 @@ footer {
 .women-jackets {
     display: flex;
     flex-direction: row;
-    gap: 24px;
+    gap: 40px;
     flex-wrap: wrap;
     list-style: none;
 }
 
 .women-jackets li {
     flex: 1;
-    min-width: 250px;
+    min-width: 300px;
     position: relative;
+    padding-top: 24px;
 }
 
 /* Product Card */
@@ -646,10 +647,16 @@ footer {
     text-decoration: none;
     color: #1E1E1E;
     gap: 8px;
+    width: 100%;
 }
 
 .product-title {
-    display: inline;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    gap: 8px;
+    margin-top: 8px;
 }
 
 .product-title h3 {
@@ -665,13 +672,24 @@ footer {
 .product-description p {
     font-size: 14px;
     font-weight: normal;
+    width: 100%;
 }
 
 .sold-out {
     font-size: 16px;
     font-weight: bold;
-    margin-bottom: 8px;
+    margin-bottom: 0;
+    top: 0;
+    position: absolute;
     text-align: center;
+    width: 100%;
+}
+
+.product-img {
+    border-radius: 8px 8px 0 0;
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
 /* Mobile */
