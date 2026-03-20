@@ -602,7 +602,7 @@ footer {
 
 /* Hero Section */
 
-.women-hero {
+.clothes-hero {
     height: 100vh;
     display: flex;
     align-items: center;
@@ -614,7 +614,7 @@ footer {
     color: white;
 }
 
-.women-products {
+.products {
     background-color: white;
     padding: 64px 5vw;
 
@@ -629,7 +629,7 @@ footer {
     text-shadow: none;
 }
 
-.women-jackets {
+.products-jackets {
     display: flex;
     flex-direction: row;
     gap: 40px;
@@ -637,7 +637,7 @@ footer {
     list-style: none;
 }
 
-.women-jackets li {
+.products-jackets li {
     flex: 1;
     min-width: 300px;
     position: relative;
@@ -1025,7 +1025,7 @@ footer {
         margin-top: 24px;
     }
 
-/* Women's Clothes */
+/* Women and Men Clothes */
 
 .women-page {
     background-image: none;
@@ -1037,7 +1037,7 @@ footer {
     background-size: cover;
     background-position: center;
 }
-.women-hero {
+.clothes-hero {
     padding-left: 0;
     padding-top: 24px;
     flex-direction: column;
@@ -1054,14 +1054,14 @@ footer {
     width: 100%;   
 }
 
-.women-jackets {
+.products-jackets {
     flex-direction: row;
     flex-wrap: wrap;
     gap: 16px;
     row-gap: 40px;
 }
 
-.women-jackets li {
+.products-jackets li {
     flex: 0 0 calc(50% - 8px);
     min-width: 0;
     height: auto;
