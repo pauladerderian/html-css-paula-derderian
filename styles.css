@@ -580,22 +580,32 @@ footer {
 }
 
 
-/* Women's Clothes */
+/* Women and Men Clothes */
 
 .women-page {
     background-image: url(images/women_background.webp);
+}
+
+.men-page {
+    background-image: url(images/men_background.jpg);
+}
+
+.women-page,
+.men-page {
     background-position-x: left;
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
 }
 
-.women-page .nav-bar a[aria-label="Shop Women's Clothing"] {
+.women-page .nav-bar a[aria-label="Shop Women's Clothing"], 
+.men-page .nav-bar a[aria-label="Shop Men's Clothing"] {
     color: #1E1E1E;
 }
 
 
-.women-page main {
+.women-page main,
+.men-page main {
     min-height: 100vh;
     margin: 0;
 }
@@ -609,7 +619,8 @@ footer {
     padding-left: 10vw;
 }
 
-.women-page h1 {
+.women-page h1,
+.men-page h1 {
     font-size: 40px;
     color: white;
 }
@@ -620,7 +631,8 @@ footer {
 
 }
 
-.women-page h2 {
+.women-page h2,
+.men-page h2 {
     color: #1E1E1E;
     font-size: 24px;
     font-weight: bold;
@@ -699,6 +711,7 @@ footer {
 }
 
 /* Mobile */
+
 @media (max-width: 768px) {
 
     body {
@@ -980,7 +993,7 @@ footer {
         flex-direction: column;
         gap: 24px;
         margin-top: 0;
-        padding-top: 32px;
+        padding-top: 40px;
     }
 
     .footer-links {
@@ -1047,16 +1060,27 @@ footer {
 
 /* Women and Men Clothes */
 
-.women-page {
+.women-page,
+.men-page {
     background-image: none;
     background-attachment: scroll;
 }
+
 .women-page::after {
-    content: "";
     background-image: url(images/women_mobile.jpg);
+}
+
+.men-page::after {
+    background-image: url(images/men_background.jpg);
+}
+
+.women-page::after,
+.men-page::after {
+    content: "";
     background-size: cover;
     background-position: center;
 }
+
 .clothes-hero {
     padding-left: 0;
     padding-top: 24px;
@@ -1067,7 +1091,8 @@ footer {
     
 }
 
-.women-page h1 {
+.women-page h1,
+.men-page h1 {
     font-size: 52px;
     color: #494C4D;
     text-align: center;
