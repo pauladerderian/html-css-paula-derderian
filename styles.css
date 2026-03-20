@@ -714,15 +714,22 @@ footer {
 
 @media (max-width: 768px) {
 
+    html, body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+    }
+
     body {
         background-image: none;
         position: relative;
+        padding-top: 88px;
     }
 
     body::after{
         content: "";
-        position: absolute;
-        top: 96px;
+        position: fixed;
+        top: 44px;
         left: 0;
         width: 100%;
         min-height: 100vh;
@@ -732,6 +739,10 @@ footer {
         background-position-x: 30%;
         background-position-y: 135%;
         z-index: -1;
+    }
+
+    .hero-section {
+        padding-top: 4px;
     }
 
     h1 {
@@ -838,6 +849,7 @@ footer {
     
 
     /* hidden desktop nav-bar */
+
     .nav-left {
         display: none;
     }
@@ -907,7 +919,7 @@ footer {
     text-shadow: none;
     }
 
-/* Blog Section*/
+/* Blog Section */
 
     .blog-section p {
     font-size: 12px;
@@ -1037,26 +1049,26 @@ footer {
         justify-content: center;
     }
 
-    .footer-socials {
-        flex-direction: column;
-        align-items: center;
-        gap: 24px;
-    }
+.footer-socials {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
 
-    .footer-socials-icons {
-        display: flex;
-        gap: 32px;
-    }
+.footer-socials-icons {
+    display: flex;
+    gap: 32px;
+}
 
-    .footer-socials img {
-        width: 56px;
-        height: 56px;
-    }
+.footer-socials img {
+    width: 56px;
+    height: 56px;
+}
 
-    .footer-bottom {
-        order: 3;
-        margin-top: 24px;
-    }
+.footer-bottom {
+    order: 3;
+    margin-top: 24px;
+}
 
 /* Women and Men Clothes */
 
@@ -1099,11 +1111,21 @@ footer {
     width: 100%;   
 }
 
+.women-page h2,
+.men-page h2 {
+    margin-bottom: 24px;
+}
+
+.products {
+    padding: 64px 5vw;
+}
+
 .products-jackets {
     flex-direction: row;
     flex-wrap: wrap;
     gap: 16px;
     row-gap: 40px;
+    margin-top: 0;
 }
 
 .products-jackets li {
