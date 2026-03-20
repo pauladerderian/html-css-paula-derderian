@@ -1,20 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Rainy Days</title>
+    <title>Gear and Tools</title>
     <link rel="stylesheet" href="styles.css">
     <meta charset="UTF-8">
-    <meta name="description" content="RainyDays Premium outdoor jackets built to endure.">
+    <meta name="description" content="Shop for Gear and Tools for at RainyDays">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
     <link rel="icon" type="image/png" href="images/favicon.png">
 </head>
-<body>
-    <header> 
+<body class="gear-page">
+<header> 
     <!--Navigation Bar-->
         <nav class="nav-bar">
             <!-- checkbox for toggle -->
              <input type="checkbox" id="nav-toggle" class="nav-toggle">
-
              <!-- Desktop Menu Left -->
             <ul class="nav-left">
                 <li><a href="women.html" aria-label="Shop Women's Clothing"> Women</a></li>
@@ -52,9 +51,8 @@
                         </div>   
                 </li>
             </ul>
-
             <!-- Mobile Dropdown Menu -->
-             <div class="mobile-menu">
+            <div class="mobile-menu">
                 <ul class="mobile-nav-links">
                     <li><a href="women.html" aria-label="Shop Women's Clothing">Women</a></li>
                     <li><a href="men.html" aria-label="Shop Men's Clothing">Men</a></li>
@@ -64,27 +62,22 @@
                     <li><a href="#" aria-label="Create an account">Create An Account</a></li>
                     <li><a href="#" aria-label="log in">Log In</a></li>
                 </ul>
-             </div>
+            </div>
         </nav>
     </header>
     <main>
-        <section class="hero-section">
-                <h1>Pushing The Comfort Zone</h1>
-            </div>
-            <div class="buttons">
-            <a href="women.html" class="btn" aria-label="Shop Women's Clothing">Shop Women</a>
-            <a href="men.html" class="btn" aria-label="Shop Men's Clothing">Shop Men</a>
-            </div>        
+        <section class="products-hero">
+        <h1>Gear</h1>
         </section>
-        <section class="blog-section">
-            <div class="blog-content">
-                <h2>Built to endure</h2>
-                <p class="blog-title">Our outerwear is designed for comfort and endurance, season after season.</p>
-                <a href="blog.html" class="btn-blog" aria-label="Read the full blog post">Read more</a>
-            </div>
+        <section class="gear-coming">
+            <p>Soon, you'll be able to shop gear and tools designed for every adventure.</p>
+            <p>Stay tuned and join our newsletter to be the first to know about new drops and special offers.</p>
+            <label for="gear-email">Enter your email</label>
+            <input type="email" id="gear-email" placeholder="example@yourmail.com">
+            <a href="#" class="btn-signup">Sign up</a>
         </section>
     </main>
-    <footer>
+<footer>
         <div class="footer-top">
             <div class="footer-brand">
                 <img src="images/footer-logo.png" alt="rainydays logo">
@@ -148,4 +141,3 @@
         </div>
     </footer>
 </body>
-
