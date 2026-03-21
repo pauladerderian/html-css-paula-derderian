@@ -470,7 +470,7 @@ footer {
 .footer-middle {
     display: flex;
     justify-content: space-between;
-    gap: 40px;
+    gap: 16px;
     margin-bottom: 48px;
     margin-top: 80px;
 }
@@ -513,7 +513,7 @@ footer {
     display: flex;
     flex-direction: column;
     gap: 32px;
-    max-width: 380px;
+    max-width: 300px;
     text-align: center;
     align-items: center;
 }
@@ -526,7 +526,7 @@ footer {
 .newsletter-form input {
     flex: 1;
     height: 52px;
-    max-width: 238px; 
+    max-width: 300px; 
     padding: 8px 16px;
     border: 1px solid #494C4D30;
     border-radius: 8px 0 0 8px;
@@ -566,6 +566,8 @@ footer {
     width: 40px;
     height: 40px;
 }
+
+/* Footer Bottom */
 
 .footer-bottom {
     border-top: 1px solid #516E81;
@@ -702,13 +704,14 @@ footer {
 }
 
 .sold-out {
-    font-size: 16px;
+    font-size: 20px;
     font-weight: bold;
-    margin-bottom: 0;
+    margin-bottom: 8px;
     top: 0;
     position: absolute;
     text-align: center;
     width: 100%;
+    padding-bottom: 8px;
 }
 
 .product-img {
@@ -716,6 +719,7 @@ footer {
     width: 100%;
     height: auto;
     display: block;
+
 }
 
 /* Gear */
