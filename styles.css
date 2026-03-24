@@ -608,14 +608,16 @@ footer {
 
 .women-page .nav-bar a[aria-label="Shop Women's Clothing"], 
 .men-page .nav-bar a[aria-label="Shop Men's Clothing"],
-.gear-page .nav-bar a[aria-label="Shop Gear and Tools"] {
+.gear-page .nav-bar a[aria-label="Shop Gear and Tools"],
+.contact-page .nav-bar a[aria-label="Contact Us"] {
     color: #1E1E1E;
 }
 
 
 .women-page main,
 .men-page main
-.gear-page main {
+.gear-page main
+.contact-page main {
     min-height: 100vh;
     margin: 0;
 }
@@ -642,7 +644,8 @@ footer {
 }
 
 .women-page h2,
-.men-page h2 {
+.men-page h2,
+.contact-info h2 {
     color: #1E1E1E;
     font-size: 24px;
     font-weight: bold;
@@ -722,9 +725,10 @@ footer {
 
 }
 
-/* Gear */
+/* Gear and Contact main elements */
 
-.gear-coming {
+.gear-coming,
+.contact-info {
     background-color: white;
     display: flex;
     flex-direction: column;
@@ -733,6 +737,8 @@ footer {
     gap: 16px;
     text-align: center;
 }
+
+/* Gear */
 
 .gear-coming input {
     width: 345px;
@@ -767,6 +773,11 @@ footer {
     margin: 8px;
 }
 
+/* Contact Us */
+
+.contact-page {
+    background-image: none;
+}
 
 /* Mobile */
 
