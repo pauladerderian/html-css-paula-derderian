@@ -1242,5 +1242,9 @@ footer {
     text-align: center;
 }
 
+.sold-out {
+    font-size: 16px;
+} 
+
 }
 
