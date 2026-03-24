@@ -616,9 +616,10 @@ footer {
 
 
 .women-page main,
-.men-page main
-.gear-page main
-.contact-page main {
+.men-page main,
+.gear-page main,
+.contact-page main,
+.blog-page main {
     min-height: 100vh;
     margin: 0;
 }
@@ -777,16 +778,19 @@ footer {
 
 /* Contact Us */
 
-.contact-page {
+.contact-page,
+.blog-page {
     background-image: none;
 }
 
-.contact-page h2 {
+.contact-page h2
+.blog-entry h2 {
     margin-bottom: 32px;
     font-weight: normal;
 }
 
-.contact-page h1 {
+.contact-page h1,
+.blog-page h1 {
     font-size: 32px;
     color: #1E1E1E;
     text-shadow: none;
