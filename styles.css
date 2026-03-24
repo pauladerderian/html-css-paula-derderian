@@ -470,7 +470,7 @@ footer {
 .footer-middle {
     display: flex;
     justify-content: space-between;
-    gap: 16px;
+    gap: 24px;
     margin-bottom: 48px;
     margin-top: 80px;
 }
@@ -513,7 +513,7 @@ footer {
     display: flex;
     flex-direction: column;
     gap: 32px;
-    max-width: 300px;
+    max-width: 400px;
     text-align: center;
     align-items: center;
 }
@@ -526,6 +526,7 @@ footer {
 .newsletter-form input {
     flex: 1;
     height: 52px;
+    width: 240px;
     max-width: 300px; 
     padding: 8px 16px;
     border: 1px solid #494C4D30;
@@ -751,7 +752,8 @@ footer {
     outline: none;
 }
 
-.gear-coming p {
+.gear-coming p,
+.contact-info p {
     margin-bottom: 16px;
 }
 
@@ -777,6 +779,20 @@ footer {
 
 .contact-page {
     background-image: none;
+}
+
+.contact-page h2 {
+    margin-bottom: 32px;
+    font-weight: normal;
+}
+
+.contact-page h1 {
+    font-size: 32px;
+    color: #1E1E1E;
+    text-shadow: none;
+    text-align: center;
+    margin-top: 64px;
+    margin-bottom: 16px;
 }
 
 /* Mobile */
@@ -1143,7 +1159,8 @@ footer {
 
 .women-page,
 .men-page,
-.gear-page {
+.gear-page,
+.contact-page {
     background-image: none;
     background-attachment: scroll;
 }
@@ -1161,6 +1178,10 @@ footer {
 .gear-page::after {
     background-image: url(images/gear-background.jpg);
     background-position: 62%;
+}
+
+.contact-page::after {
+    background-image: none;
 }
 
 .women-page::after,
@@ -1185,7 +1206,8 @@ footer {
 }
 
 .women-page h1,
-.men-page h1 {
+.men-page h1,
+.contact-page h1 {
     color: #494C4D;  
 }
 
@@ -1202,9 +1224,17 @@ footer {
     width: 100%; 
 }
 
+.contact-page h1 {
+    margin-top: 40px;
+    font-size: 40px;
+    text-align: center;
+    width: 100%;
+}
+
 .women-page h2,
 .men-page h2,
-.gear-page h2 {
+.gear-page h2,
+.contact-page h2 {
     margin-bottom: 24px;
 }
 
