@@ -826,6 +826,7 @@ footer {
     color:#1E1E1E;
     text-shadow: none;
     margin: 0;
+    padding: 0;
 }
 
 .jacket-title p {
@@ -1078,7 +1079,7 @@ footer {
 
 /* --- Footer --- */
 
-    footer { padding: 24px 24px 0 24px; }
+footer { padding: 24px 24px 0 24px; }
 
     .footer-top {
         flex-direction: column;
@@ -1180,7 +1181,8 @@ footer {
     .men-page,
     .gear-page,
     .contact-page,
-    .blog-page { 
+    .blog-page,
+    .product-page { 
         background-image: none;
         background-attachment: scroll;
 }
@@ -1206,7 +1208,8 @@ footer {
 .gear-page::after { background-image: url(images/gear-background.jpg); background-position: 62%; }
 
 .contact-page::after,
-.blog-page::after { background-image: none; }
+.blog-page::after,
+.product-page::after { background-image: none; }
 
 
 /* --- Products Hero --- */
@@ -1302,24 +1305,58 @@ footer {
 
 /* --- Product Detail --- */
 
-    .product-page main {
-        flex-direction: column;
-        gap: 40px;
-        padding:  40px 48px;
-        align-items: center;
-    }
+.product-page main {
+    flex-direction: column;
+    gap: 40px;
+    padding:  40px 48px;
+    align-items: center;
+}
 
-    .product-page .product-img { max-width: 100%; width: 100%; }
+.product-page .product-img { max-width: 100%; width: 100%; }
 
-    .jacket {
-        margin-top: 40px;
-        width: 100%;
-        max-width: 480px;
-        margin-left: auto;
-        margin-right: auto;
-    }
+.jacket {
+    margin-top: 0px;
+    width: 100%;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+}
 
-    .product-info { max-width: 100%; padding-top: 0; }
+.product-info { 
+    max-width: 100%; 
+    width: 100%; 
+    padding-top: 0 !important;
+}
+
+.jacket-title {
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.product-page h1 {
+    font-size: 20px;
+    text-shadow: none;
+    padding-bottom: 8px;
+}
+
+.jacket-title p {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.reviews {
+    flex-wrap: wrap;
+    gap: 4px;
+    justify-content: center;
+}
+
+.reviews span {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 4px;
+    text-align: center;
+}
 
 }
 
@@ -1441,6 +1478,17 @@ h1 {
     width: 104px;
     height: 37px;
     box-shadow: none;
+}
+
+.size-options {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+}
+
+.size-btn {
+    width: 100%;
+    height: 48px;
 }
 
 }
