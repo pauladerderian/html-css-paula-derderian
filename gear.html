@@ -12,8 +12,10 @@
 <header> 
     <!--Navigation Bar-->
         <nav class="nav-bar">
-            <!-- checkbox for toggle -->
+            <!-- checkbox for nav toggle -->
             <input type="checkbox" id="nav-toggle" class="nav-toggle">
+            <!-- checkbox for cart toggle -->
+            <input type="checkbox" id="cart-toggle" class="cart-toggle">
             <!-- Desktop Menu Left -->
             <ul class="nav-left">
                 <li><a href="women.html" aria-label="Shop Women's Clothing"> Women</a></li>
@@ -42,15 +44,19 @@
                 </li>
                 <li class="profile">
                     <span class="profile-icon"></span>
-                </li>
-                <li class="cart-container">
-                    <span class="cart-text">Cart</span>
+                </li> 
+                <li>
+                    <!-- cart trigger -->
+                    <label for="cart-toggle" class="cart-container" aria-label="Open cart">
+                        <span class="cart-text">Cart</span>
                         <div class="cart-icon">
                             <span class="cart-icon-outline"></span>
                             <span class="cart-count">0</span>
-                        </div>   
+                        </div>
+                    </label>
                 </li>
             </ul>
+
             <!-- Mobile Dropdown Menu -->
             <div class="mobile-menu">
                 <ul class="mobile-nav-links">
@@ -63,8 +69,56 @@
                     <li><a href="#" aria-label="log in">Log In</a></li>
                 </ul>
             </div>
+
+            <!-- Cart Modal -->
+            <div class="cart-modal">
+                <label for="cart-toggle" class="cart-overlay"></label>
+                <div class="cart-modal-content">
+                    <!-- Cart Modal Top -->
+                    <div class="cart-header">
+                        <h2>Cart</h2>
+                        <label for="cart-toggle" class="cart-close">x</label>
+                    </div>
+                    <!-- cart item -->
+                    <div class="cart-item">
+                        <img src="images/brown-puffed.jpg" alt="Brown Puffed Jacket">
+                        <div class="cart-item-info">
+                            <div class="cart-item-top">
+                                <p class="cart-item-name">PUFFED JACKET</p>
+                                <p class="cart-item-price">NOK 1499</p>
+                            </div>
+                            <p class="cart-item-size">Size: M</p>
+                            <div class="cart-quantity">
+                                <button class="qty-btn">-</button>
+                                <span class="qty-count">0</span>
+                                <button class="qty-btn">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- subtotal -->
+                    <div class="cart-subtotal">
+                        <div class="cart-subtotal-row">
+                            <p>SUBTOTAL:</p>
+                            <p>NOK 0</p>
+                        </div>
+                        <p class="cart-delivery">Delivery calculated at checkout</p>
+                    </div>
+                    <!-- go to checkout button -->
+                    <a href="#" class="btn-cart">Go to Checkout</a>
+
+                    <!-- information -->
+                    <div class="cart-information">
+                        <h3>Information</h3>
+                        <ul>
+                            <li>Free return within 30 days of delivery</li>
+                            <li>Taxes included in the subtotal</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </nav>
-    </header>
+</header>
     <main>
         <section class="products-hero">
         <h1>Gear</h1>
