@@ -92,11 +92,20 @@
             <div class="size-selector">
                 <h3>Choose size</h3>
                 <div class="size-options">
-                    <button class="size-btn">XS</button>
-                    <button class="size-btn">S</button>
-                    <button class="size-btn active">M</button>
-                    <button class="size-btn">L</button>
-                    <button class="size-btn">XL</button>
+                    <input type="radio" name="size" id="xs">
+                    <label for="xs" class="size-btn">XS</label>
+
+                    <input type="radio" name="size" id="s">
+                    <label for="s" class="size-btn">S</label>
+
+                    <input type="radio" name="size" id="m" checked>
+                    <label for="m" class="size-btn">M</label>
+
+                    <input type="radio" name="size" id="l">
+                    <label for="l" class="size-btn">L</label>
+
+                    <input type="radio" name="size" id="xl">
+                    <label for="xl" class="size-btn">XL</label>
                 </div>
             </div>
             <button class="btn-cart">Add to cart</button>

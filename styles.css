@@ -372,6 +372,11 @@ header {
     color: white;
 }
 
+.btn-cart:active {
+    background-color: #2d2e2e;
+    transform: sclae(0.98);
+}
+
 
 /* ==== HERO SECTION (index) ==== */
 
@@ -890,6 +895,17 @@ footer {
     justify-content: center;
 }
 
+.size-options input[type="radio"] {
+    display: none;
+}
+
+.size-options input[type="radio"]:checked + .size-btn {
+    border-color: #1E1E1E;
+    color:#1E1E1E;
+    background-color: black;
+    color: white;
+}
+
 .size-btn {
     width: 92px;
     height: 48px;
@@ -905,9 +921,6 @@ footer {
     justify-content: center;
 }
 
-.size-btn.active { border-color: #1E1E1E30; color: #1E1E1E; }
-
-.size-btn.active:hover { background-color: black; color: white; }
 
 /* ==== SHARED TABLET + MOBILE (max-width: 1024px) ==== */
 
