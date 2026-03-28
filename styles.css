@@ -1903,6 +1903,17 @@ footer { padding: 24px 24px 0 24px; }
     width: 40%;
 }
 
+/* --- Confirmation --- */
+
+.confirmation-page main {
+    padding:  40px 32px;
+    align-items: flex-start;
+}
+
+.order-confirmation {
+    padding:  32px;
+}
+
 }
 
 /* ==== TABLET ONLY (768px - 1024px) ==== */
@@ -1973,11 +1984,11 @@ h1 { font-size: 48px; }
         overflow-x: hidden;
     }
 
-    body {
-        background-image: none;
-        position: relative;
-        padding-top: 88px;
-    }
+body {
+    background-image: none;
+    position: relative;
+    padding-top: 88px;
+}
 
 body::after{
     content: "";
@@ -2095,5 +2106,36 @@ h1 {
     margin-top: 0;
 }
 
+.confirmation-page {
+    background-image: none;
+    background-color: white;
+}
+
+.confirmation-page::after {
+    display: none;
+}
+
+.confirmation-page main {
+    padding: 24px 16px;
+}
+
+.confirmation-page h1 {
+    font-size: 28px;
+}
+
+.order-confirmation {
+    padding:  24px 16px;
+    gap: 16px;
+}
+
+.success-icon {
+    width: 56px;
+    height:  56px;
+}
+
+.confirmation-text p {
+    font-size: 14px;
+    line-height: 1.6;
+}
 
 }
