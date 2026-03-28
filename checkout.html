@@ -41,7 +41,9 @@
                     <span class="search-icon"></span>
                 </li>
                 <li class="profile">
+                    <a href="coming-soon.html" aria-label="Profile">
                     <span class="profile-icon"></span>
+                    </a>
                 </li> 
                 <li>
                     <!-- cart trigger -->
@@ -62,8 +64,8 @@
                     <li><a href="gear.html" aria-label="Shop Gear and Tools">Gear</a></li>
                     <li><a href="blog.html" aria-label="Read our blog">Blog</a></li>
                     <li><a href="contact.html" aria-label="Contact Us">Contact Us</a></li>
-                    <li><a href="#" aria-label="Create an account">Create An Account</a></li>
-                    <li><a href="#" aria-label="log in">Log In</a></li>
+                    <li><a href="coming-soon.html" aria-label="Create an account">Create An Account</a></li>
+                    <li><a href="coming-soon.html" aria-label="log in">Log In</a></li>
                 </ul>
             </div>
             <!-- Cart Modal -->
@@ -199,8 +201,8 @@
                 <img src="images/brown-puffed.jpg" alt="brown puffed jacket women">
                 <div class="order-item-details">
                     <div class="order-item-row">
-                        <p><strong>QTY.</strong> 0</p>
-                        <p><strong>NOK</strong> 0</p>
+                        <p><strong>QTY.  0</strong></p>
+                        <p><strong>NOK  0</strong></p>
                     </div>
                     <div class="order-item-row">
                         <p><strong>PUFFED JACKET</strong></p>
@@ -243,25 +245,28 @@
             </ul>
         </div>
         <div class="card-details">
+            <h3>Card Details</h3>
             <div class="form-group">
                 <label for="card-name">Name on the card (required)</label>
                 <input type="text" id="card-name" required>
                 <p>Ex. John Johnson</p>
             </div>
             <div class="form-group">
-                <label for="card-number">Card Number(required)</label>
+                <label for="card-number">Card Number (required)</label>
                 <input type="text" id="card-number" maxlength="19" required>
                 <p>Ex. 1234 5678 9012 3456</p>
             </div>
-            <div class="form-group">
-                <label for="expiry">Expiration Date</label>
-                <input type="text" id="expiry" placeholder="MM/YY" maxlength="5">
-                <p>Ex. 01/27</p>
-            </div>
-            <div class="form-group">
-                <label for="cvc">CVC Code</label>
-                <input type="number" id="cvc" placeholder="000" maxlength="3">
-                <p>3 digits</p>
+            <div class="card-row">
+                <div class="form-group">
+                    <label for="expiry">Expiration Date</label>
+                    <input type="text" id="expiry" placeholder="MM/YY" maxlength="5">
+                    <p>Ex. 01/27</p>
+                </div>
+                <div class="form-group">
+                    <label for="cvc">CVC Code</label>
+                    <input type="text" id="cvc" placeholder="000" maxlength="3">
+                    <p>3 digits</p>
+                </div>
             </div>
             <a href="confirmation.html" class="btn-cart">Pay Now</a>
         </div>
