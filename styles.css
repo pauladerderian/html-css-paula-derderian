@@ -1176,10 +1176,17 @@ footer {
 }
 
 .checkout-form {
-    flex: 1;
+    flex: 2;
     display: flex;
     flex-direction: column;
     gap: 40px;
+}
+
+.checkout-form h3 {
+    font-size: 18px;
+    font-weight: 500;
+    color: black;
+    padding-bottom: 24px;
 }
 
 .details-form {
@@ -1200,9 +1207,9 @@ footer {
     border: 1px solid #494C4D30;
     border-radius: 8px;
     font-family: inherit;
-    font-size: 14px;
+    font-size: 16px;
     outline: none;
-    width: 100
+    width: 100%;
 }
 
 .form-group label {
@@ -1211,18 +1218,53 @@ footer {
     padding-bottom: 8px;
 }
 
+.form-group p {
+    font-size: 16px;
+    color: #6E727280;
+}
+
+
+.radio-group {
+    font-size: 16px;
+    padding-bottom: 48px;
+}
+
 
 .checkout-sidebar {
-    width: 340px;
+    width: auto;
     flex-shrink: 0;
     display: flex;
     flex-direction: column;
     gap: 24px;
     position: sticky;
     top: 80px;
+    flex: 1;
 }
 
-.order-summary img {
+.order-summary h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: black;
+    text-shadow: none;
+    margin: 0;
+    padding-bottom: 16px;
+}
+
+.order-summary {
+    border: 1px solid #6E7272;
+    border-radius: 8px;
+    padding: 24px;
+    width: 100%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.order-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+}
+
+.order-item img {
     width: 100%;
     height: auto;
     max-height: 90px;
@@ -1231,14 +1273,47 @@ footer {
     border-radius: 8px;
 }
 
-.checkout-form h3 {
-    font-size: 16px;
-    font-weight: 500;
-    color: black;
-    padding-bottom: 24px;
+.order-item-details {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    flex: 1;
 }
 
+.order-item-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 16px;
+    gap: 24px;
+    font-size: 12px;
+}
 
+.order-totals {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding-top: 64px;
+    margin-top: 64px;
+}
+
+.order-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.order-total {
+    padding-top: 16px;
+    font-weight: bold;
+}
+
+.total-price {
+    display: flex;
+    gap: 16px;
+    font-weight: bold;
+}
 
 /* ==== SHARED TABLET + MOBILE (max-width: 1024px) ==== */
 
