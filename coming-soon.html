@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Coming Soon page</title>
+    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="description" content="Soon you will be able to enjoy all the features in RainyDays">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+</head>
+<body class="coming-soon-page">
+    <header> 
+    <!--Navigation Bar-->
+        <nav class="nav-bar">
+            <!-- checkbox for nav toggle -->
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+            <!-- checkbox for cart toggle -->
+            <input type="checkbox" id="cart-toggle" class="cart-toggle">
+            <!-- Desktop Menu Left -->
+            <ul class="nav-left">
+                <li><a href="women.html" aria-label="Shop Women's Clothing"> Women</a></li>
+                <li><a href="men.html" aria-label="Shop Men's Clothing">Men</a></li>
+                <li><a href="gear.html" aria-label="Shop Gear and Tools">Gear</a></li>
+                <li><a href="contact.html" aria-label="contact us">Contact Us</a></li>
+            </ul>
+            <!-- Burger Menu Mobile -->
+            <label for="nav-toggle" class="burger" aria-label="Open navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+            <!-- Logo -->
+            <a href="index.html" class="home-logo">
+            <img src="images/logo.png" alt="home page brand logo" class="logo-default">
+            <img src="images/logo-hover.png" alt="home page brand logo" class="logo-hover">
+            </a>
+            <!-- Desktop Menu Right -->
+            <ul class="nav-right">
+                <li class="search-box">
+                    <input type="text" placeholder="Search for products">
+                    <span class="search-icon"></span>
+                </li>
+                <li class="profile">
+                    <span class="profile-icon"></span>
+                </li> 
+                <li>
+                    <!-- cart trigger -->
+                    <label for="cart-toggle" class="cart-container" aria-label="Open cart">
+                        <span class="cart-text">Cart</span>
+                        <div class="cart-icon">
+                            <span class="cart-icon-outline"></span>
+                            <span class="cart-count">0</span>
+                        </div>
+                    </label>
+                </li>
+            </ul>
+            <!-- Mobile Dropdown Menu -->
+            <div class="mobile-menu">
+                <ul class="mobile-nav-links">
+                    <li><a href="women.html" aria-label="Shop Women's Clothing">Women</a></li>
+                    <li><a href="men.html" aria-label="Shop Men's Clothing">Men</a></li>
+                    <li><a href="gear.html" aria-label="Shop Gear and Tools">Gear</a></li>
+                    <li><a href="blog.html" aria-label="Read our blog">Blog</a></li>
+                    <li><a href="contact.html" aria-label="Contact Us">Contact Us</a></li>
+                    <li><a href="#" aria-label="Create an account">Create An Account</a></li>
+                    <li><a href="#" aria-label="log in">Log In</a></li>
+                </ul>
+            </div>
+            <!-- Cart Modal -->
+            <div class="cart-modal">
+                <label for="cart-toggle" class="cart-overlay"></label>
+                <div class="cart-modal-content">
+                    <!-- Cart Modal Top -->
+                    <div class="cart-header">
+                        <h2>Cart</h2>
+                        <label for="cart-toggle" class="cart-close">x</label>
+                    </div>
+                    <!-- cart item -->
+                    <div class="cart-item">
+                        <img src="images/brown-puffed.jpg" alt="Brown Puffed Jacket">
+                        <div class="cart-item-info">
+                            <div class="cart-item-top">
+                                <p class="cart-item-name">PUFFED JACKET</p>
+                                <p class="cart-item-price">NOK 1499</p>
+                            </div>
+                            <p class="cart-item-size">Size: M</p>
+                            <div class="cart-quantity">
+                                <button class="qty-btn">-</button>
+                                <span class="qty-count">0</span>
+                                <button class="qty-btn">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- subtotal -->
+                    <div class="cart-subtotal">
+                        <div class="cart-subtotal-row">
+                            <p>SUBTOTAL:</p>
+                            <p>NOK 0</p>
+                        </div>
+                        <p class="cart-delivery">Delivery calculated at checkout</p>
+                    </div>
+                    <!-- go to checkout button -->
+                    <a href="#" class="btn-cart">Go to Checkout</a>
+                    <!-- information -->
+                    <div class="cart-information">
+                        <h3>Information</h3>
+                        <ul>
+                            <li>Free return within 30 days of delivery</li>
+                            <li>Taxes included in the subtotal</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="coming-soon-feature">
+            <h1>Coming Soon</h1>
+            <p>This feature is currently under development. Check back soon!</p>
+            <a href="index.html" class="btn">Back to Home</a>
+        </section>
+        <section class="coming-soon-newsletter">
+            <p>Stay tuned and join our newsletter to be the first to know about new drops and special offers.</p>
+            <label for="email">Enter your email</label>
+            <input type="email" id="email" placeholder="example@yourmail.com">
+            <a href="#" class="btn-signup">Sign up</a>
+        </section>
+    </main>
+</body>    

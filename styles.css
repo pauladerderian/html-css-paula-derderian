@@ -1429,14 +1429,16 @@ footer { padding: 24px 24px 0 24px; }
     .gear-page,
     .contact-page,
     .blog-page,
-    .product-page { 
+    .product-page,
+    .coming-soon-page { 
         background-image: none;
         background-attachment: scroll;
 }
 
     .women-page::after,
     .men-page::after,
-    .gear-page::after {
+    .gear-page::after,
+    .coming-soon-page::after {
         content: "";
         position: fixed;
         top: 0;
@@ -1448,11 +1450,13 @@ footer { padding: 24px 24px 0 24px; }
         z-index: -1;
 }
 
-    .women-page::after { background-image: url(images/women-mobile.jpg); background-position: center; }
+.women-page::after { background-image: url(images/women-mobile.jpg); background-position: center; }
 
-    .men-page::after { background-image: url(images/men-background.jpg); background-position: center; }
+.men-page::after { background-image: url(images/men-background.jpg); background-position: center; }
 
 .gear-page::after { background-image: url(images/gear-background.jpg); background-position: 62%; }
+
+.coming-soon-page::after {background-image: url(images/coming-soon.jpg); background-position: center;}
 
 .contact-page::after,
 .blog-page::after,
