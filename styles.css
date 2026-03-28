@@ -292,6 +292,8 @@ header {
 
 .cart-toggle { display: none; }
 
+/* ==== CART MODAL ==== */
+
 .cart-modal {
     display: none;
     position: fixed;
@@ -592,8 +594,6 @@ a.btn-cart:hover {
     gap: 60px;
 }
 
-
-
 /* ==== BLOG SECTION (index) ==== */
 
 .blog-section {
@@ -776,7 +776,8 @@ footer {
 
 .women-page,
 .men-page,
-.gear-page {
+.gear-page,
+.coming-soon-page  {
     background-position-x: left;
     background-repeat: no-repeat;
     background-size: cover;
@@ -789,6 +790,8 @@ footer {
 
 .gear-page { background-image: url(images/gear-background.jpg); background-position: center; }
 
+.coming-soon-page {background-image: url(images/coming-soon.jpg); background-position: center; }
+
 .contact-page,
 .blog-page,
 .product-page { background-image: none; }
@@ -800,18 +803,32 @@ footer {
 .men-page .nav-bar a[aria-label="Shop Men's Clothing"],
 .gear-page .nav-bar a[aria-label="Shop Gear and Tools"],
 .contact-page .nav-bar a[aria-label="Contact Us"],
-.product-page .nav-bar a[aria-label="Shop Women's Clothing"] {
-    color: #1E1E1E;
-}
+.product-page .nav-bar a[aria-label="Shop Women's Clothing"] { color: #1E1E1E; }
 
 
 .women-page main,
 .men-page main,
 .gear-page main,
 .contact-page main,
-.product-page main {
+.product-page main,
+.coming-soon-page main {
     min-height: 100vh;
     margin: 0;
+}
+
+.coming-soon-page main {
+    position: relative;
+}
+
+.coming-soon-page main::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 0;
 }
 
 /* ==== PRODUCTS HERO (Women / Men / Gear) ==== */
@@ -915,7 +932,7 @@ footer {
 
 /* ==== GEAR, CONTACT, BLOG ==== */
 
-.gear-coming,
+.coming-soon-gear,
 .contact-info {
     background-color: white;
     display: flex;
@@ -926,7 +943,20 @@ footer {
     text-align: center;
 }
 
-.gear-coming input {
+.coming-soon-feature,
+.coming-soon-newsletter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 64px 24px;
+    gap: 16px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.coming-soon-gear input,
+.coming-soon-newsletter input {
     width: 345px;
     height: 52px;
     padding: 8px 16px;
@@ -937,14 +967,21 @@ footer {
     outline: none;
 }
 
-.gear-coming p,
-.contact-info p {
+.coming-soon-gear p,
+.contact-info p,
+.coming-soon-feature p,
+.coming-soon-newsletter p {
     margin-bottom: 16px;
 }
 
-.gear-coming label {
-    margin-top: 24px;
+.coming-soon-newsletter p,
+.coming-soon-feature p,
+.coming-soon-newsletter label {
+    color: white;
 }
+
+.coming-soon-gear label,
+.coming-soon-newsletter label { margin-top: 24px; }
 
 .contact-page h1,
 .blog-page h1 {
@@ -1291,34 +1328,34 @@ footer {
 
 footer { padding: 24px 24px 0 24px; }
 
-    .footer-top {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 8px;
-        margin-bottom: 0;
-        padding-bottom: 0;
-    }
+.footer-top {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
 
-        .footer-brand {
-        flex-direction: column;
-        align-items: center;
-        gap: 16px;
-        order: 2;
-    }
+.footer-brand {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    order: 2;
+}
 
-    .footer-brand img { height: 48px; width: auto; }
+.footer-brand img { height: 48px; width: auto; }
 
-    .footer-top h3 { font-size: 16px; }
+.footer-top h3 { font-size: 16px; }
 
-    .footer-logo-text {
-        width: 100%;
-        order: 1;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
+.footer-logo-text {
+    width: 100%;
+    order: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
 
     .footer-logo-text span {
         font-size: 40px;
@@ -1699,6 +1736,30 @@ h1 {
 .size-btn {
     width: 100%;
     height: 48px;
+}
+
+/* Cart Modal */
+
+.cart-modal-content {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    padding: 40px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    overflow-y: auto;
+}
+
+.cart-item-top {
+    display: inline-block;
+}
+
+.cart-item-top p {
+    padding-bottom: 16px;
 }
 
 }
