@@ -9,6 +9,13 @@
 
 @font-face {
     font-family: "Din Pro";
+    src: url(font/Din-Pro/dinpro_medium.otf);
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Din Pro";
     src: url(font/Din-Pro/dinpro_bold.otf);
     font-weight: bold;
     font-style: normal;
@@ -1173,8 +1180,37 @@ footer {
     display: flex;
     flex-direction: column;
     gap: 40px;
-    padding: 0 40px;
 }
+
+.details-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px 32px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group input {
+    height: 52px;
+    padding: 8px 16px;
+    border: 1px solid #494C4D30;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+    width: 100
+}
+
+.form-group label {
+    font-size: 16px;
+    color: #1E1E1E;
+    padding-bottom: 8px;
+}
+
 
 .checkout-sidebar {
     width: 340px;
@@ -1191,7 +1227,18 @@ footer {
     height: auto;
     max-height: 90px;
     max-width: 70px;
+    object-fit: cover;
+    border-radius: 8px;
 }
+
+.checkout-form h3 {
+    font-size: 16px;
+    font-weight: 500;
+    color: black;
+    padding-bottom: 24px;
+}
+
+
 
 /* ==== SHARED TABLET + MOBILE (max-width: 1024px) ==== */
 
