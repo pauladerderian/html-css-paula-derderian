@@ -557,7 +557,8 @@ a.btn-cart:hover {
 }
 
 
-.btn-cart {
+.btn-cart,
+.btn-home {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -572,12 +573,14 @@ a.btn-cart:hover {
     border: 1px solid #516E81;
     font-family: inherit;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .btn-cart:hover,
 .btn-newsletter:hover,
 .btn-code:hover,
-.btn-signup:hover {
+.btn-signup:hover,
+.btn-home:hover {
     background-color: black;
     color: white;
 }
@@ -804,7 +807,8 @@ footer {
 .contact-page,
 .blog-page,
 .product-page,
-.checkout-page { background-image: none; }
+.checkout-page,
+.confirmation-page { background-image: none; }
 
 
 /* Active nav link */
@@ -822,7 +826,8 @@ footer {
 .contact-page main,
 .product-page main,
 .coming-soon-page main,
-.checkout-page main {
+.checkout-page main,
+.confirmation-page main {
     min-height: 100vh;
     margin: 0;
 }
@@ -847,6 +852,12 @@ footer {
     gap: 40px;
     padding: 40px 80px;
     align-items: flex-start;
+}
+
+.confirmation-page main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* ==== PRODUCTS HERO (Women / Men / Gear) ==== */
@@ -1121,8 +1132,7 @@ footer {
 
 .product-materials h3,
 .purchase-information h3,
-.size-selector h3,
-.checkout-page h3 {
+.size-selector h3 {
     font-size: 14px;
     font-weight: bold;
 }
@@ -1366,6 +1376,41 @@ footer {
     gap: 24px;
 }
 
+/* ==== ORDER CONFIRMATION ==== */
+
+.confirmation-page h1 {
+    font-size: 40px;
+    font-weight: 500;
+    text-align: center;
+    color: black;
+    text-shadow: none;
+}
+
+.order-confirmation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 24px;
+    padding: 40px;
+    max-width: 800px;
+}
+
+.success-icon {
+    width: 80px;
+    height: 80px;
+}
+
+.confirmation-text {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.confirmation-text p {
+    line-height: 2;
+    padding-bottom: 8px;
+}
 
 /* ==== SHARED TABLET + MOBILE (max-width: 1024px) ==== */
 
