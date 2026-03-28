@@ -2060,4 +2060,40 @@ h1 {
     padding-bottom: 16px;
 }
 
+/* --- Checkout --- */
+
+.checkout-page main {
+    padding: 16px;
+    gap: 16px;
+}
+
+.details-form,
+.card-row {
+    grid-template-columns: 1fr;
+}
+
+.checkout-form h3,
+.card-details h3 {
+    font-size: 16px;
+    padding-bottom: 16px;
+}
+
+.order-totals {
+    padding-top: 32px;
+    margin-top: 32px;
+}
+
+.promo-code {
+    margin: 16px;
+}
+
+.input-code {
+    width: 100%;
+}
+
+.card-details {
+    margin-top: 0;
+}
+
+
 }
