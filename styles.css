@@ -328,7 +328,7 @@ header {
     overflow-y: auto;
 }
 
-/* top */
+/* cart modal top */
 
 .cart-header {
     display: flex;
@@ -520,7 +520,8 @@ a.btn-cart:hover {
     color: white;
 }
 
-.btn-newsletter {
+.btn-newsletter,
+.btn-code {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -566,7 +567,10 @@ a.btn-cart:hover {
     cursor: pointer;
 }
 
-.btn-cart:hover {
+.btn-cart:hover,
+.btn-newsletter:hover,
+.btn-code:hover,
+.btn-signup:hover {
     background-color: black;
     color: white;
 }
@@ -744,8 +748,6 @@ footer {
     outline: none;
 }
 
-
-
 .footer-socials {
     display: flex;
     align-items: center;
@@ -794,7 +796,8 @@ footer {
 
 .contact-page,
 .blog-page,
-.product-page { background-image: none; }
+.product-page,
+.checkout-page { background-image: none; }
 
 
 /* Active nav link */
@@ -811,7 +814,8 @@ footer {
 .gear-page main,
 .contact-page main,
 .product-page main,
-.coming-soon-page main {
+.coming-soon-page main,
+.checkout-page main {
     min-height: 100vh;
     margin: 0;
 }
@@ -829,6 +833,13 @@ footer {
     height: 100%;
     background: rgba(0, 0, 0, 0.45);
     z-index: 0;
+}
+
+.checkout-page main {
+    display: flex;
+    gap: 40px;
+    padding: 40px 80px;
+    align-items: flex-start;
 }
 
 /* ==== PRODUCTS HERO (Women / Men / Gear) ==== */
@@ -984,7 +995,8 @@ footer {
 .coming-soon-newsletter label { margin-top: 24px; }
 
 .contact-page h1,
-.blog-page h1 {
+.blog-page h1,
+.checkout-page h1 {
     font-size: 32px;
     color: #1E1E1E;
     text-shadow: none;
@@ -1102,7 +1114,8 @@ footer {
 
 .product-materials h3,
 .purchase-information h3,
-.size-selector h3 {
+.size-selector h3,
+.checkout-page h3 {
     font-size: 14px;
     font-weight: bold;
 }
@@ -1155,6 +1168,30 @@ footer {
     justify-content: center;
 }
 
+.checkout-form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 0 40px;
+}
+
+.checkout-sidebar {
+    width: 340px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    position: sticky;
+    top: 80px;
+}
+
+.order-summary img {
+    width: 100%;
+    height: auto;
+    max-height: 90px;
+    max-width: 70px;
+}
 
 /* ==== SHARED TABLET + MOBILE (max-width: 1024px) ==== */
 
