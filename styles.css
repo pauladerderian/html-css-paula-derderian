@@ -1182,7 +1182,8 @@ footer {
     gap: 40px;
 }
 
-.checkout-form h3 {
+.checkout-form h3,
+.card-details h3 {
     font-size: 18px;
     font-weight: 500;
     color: black;
@@ -1250,12 +1251,14 @@ footer {
     padding-bottom: 16px;
 }
 
-.order-summary {
+.order-summary,
+.card-details {
     border: 1px solid #6E7272;
     border-radius: 8px;
     padding: 24px;
     width: 100%;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
 }
 
 .order-item {
@@ -1314,6 +1317,55 @@ footer {
     gap: 16px;
     font-weight: bold;
 }
+
+.promo-code {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.input-code {
+    display: flex;
+    width: 50%;
+}
+
+.input-code input {
+    flex: 1;
+    height: 52px;
+    padding: 8px 16px;
+    border: 1px solid #494C4D30;
+    border-radius:  8px 0 0 8px;
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+}
+
+.checkout-sidebar .purchase-information {
+    align-items: center;
+    color: black;
+    margin: 40px 0;
+}
+
+.checkout-sidebar .purchase-information ul {
+    gap: 24px;
+}
+
+.card-details {
+    display: flex;
+    flex-direction: column;
+    margin-top: 60px;
+    gap: 24px;
+}
+
+.card-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
 
 /* ==== SHARED TABLET + MOBILE (max-width: 1024px) ==== */
 
