@@ -555,6 +555,13 @@ a.btn-cart:hover { color: white; }
     transform: scale(0.98);
 }
 
+.btn-cart.disabled {
+    background-color: #C5C7C7;
+    color: white;
+    border-color: transparent;
+    cursor: not-allowed;
+    pointer-events: none;
+}
 
 /* ==== HERO SECTION (index) ==== */
 
@@ -782,8 +789,8 @@ footer {
 .men-page .nav-bar a[aria-label="Shop Men's Clothing"],
 .gear-page .nav-bar a[aria-label="Shop Gear and Tools"],
 .contact-page .nav-bar a[aria-label="Contact Us"],
-.product-page .nav-bar a[aria-label="Shop Women's Clothing"] { color: #1E1E1E; }
-
+.women-product-page .nav-bar a[aria-label="Shop Women's Clothing"],
+.men-product-page .nav-bar a[aria-label="Shop Men's Clothing"] { color: #1E1E1E; }
 
 .women-page main,
 .men-page main,
@@ -1139,6 +1146,13 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.size-btn.disabled {
+    background-color: #1E1E1E13;
+    color: #C5C7C7;
+    cursor: not-allowed;
+    pointer-events: none;
 }
 
 .checkout-form {

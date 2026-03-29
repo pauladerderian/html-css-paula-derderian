@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Women's Jackets</title>
+    <title>Men's Puffed Jacket</title>
     <link rel="stylesheet" href="styles.css">
     <meta charset="UTF-8">
-    <meta name="description" content="Shop for Women's Jackets at RainyDays.">
+    <meta name="description" content="Men's Blue Puffed Jacket">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
     <link rel="icon" type="image/png" href="images/favicon.png">
 </head>
-<body class="women-page">
+<body class="product-page men-product-page">
 <header> 
     <!--Navigation Bar-->
         <nav class="nav-bar">
@@ -29,13 +29,11 @@
                 <span></span>
                 <span></span>
             </label>
-
             <!-- Logo -->
             <a href="index.html" class="home-logo">
             <img src="images/logo.png" alt="home page brand logo" class="logo-default">
             <img src="images/logo-hover.png" alt="home page brand logo" class="logo-hover">
             </a>
-
             <!-- Desktop Menu Right -->
             <ul class="nav-right">
                 <li class="search-box">
@@ -58,7 +56,6 @@
                     </label>
                 </li>
             </ul>
-
             <!-- Mobile Dropdown Menu -->
             <div class="mobile-menu">
                 <ul class="mobile-nav-links">
@@ -71,7 +68,6 @@
                     <li><a href="coming-soon.html" aria-label="log in">Log In</a></li>
                 </ul>
             </div>
-
             <!-- Cart Modal -->
             <div class="cart-modal">
                 <label for="cart-toggle" class="cart-overlay"></label>
@@ -97,7 +93,6 @@
                             </div>
                         </div>
                     </div>
-
                     <!-- subtotal -->
                     <div class="cart-subtotal">
                         <div class="cart-subtotal-row">
@@ -108,7 +103,6 @@
                     </div>
                     <!-- go to checkout button -->
                     <a href="checkout.html" class="btn-cart">Go to Checkout</a>
-
                     <!-- information -->
                     <div class="cart-information">
                         <h3>Information</h3>
@@ -120,57 +114,63 @@
                 </div>
             </div>
         </nav>
-</header>
-<!-- Women's Clothes -->
-    <main>
-        <section class="products-hero">
-        <h1>Women</h1>
-        </section>
-        <section class="products">
-            <h2>JACKETS</h2>
-            <ul class="products-jackets">
-                <li>
-                    <a href="women-product.html" class="product-grid">
-                        <img src="images/brown-puffed.jpg" alt="Brown Puffed Jacket" class="product-img"> 
-                        <div class="product-title">
-                            <h3>PUFFED JACKET</h3>
-                            <p>NOK 1499</p>
-                        </div>
-                        <div class="product-description">
-                            <p>Waterproof and insulated, perfect for cold days outdoors</p>
-                        </div>
-                    </a>
-                </li>
-                <li class="sold-out-item">
-                    <p class="sold-out">SOLD OUT!</p>
-                    <a href="#" class="product-grid">
-                        <img src="images/black-oversized.jpg" alt="black oversized jacket" class="product-img"> 
-                        <div class="product-title">
-                            <h3>OVERSIZED JACKET</h3>
-                            <p>NOK 1899</p>
-                        </div>
-                        <div class="product-description">
-                            <p>Padded jacket with collar</p>
-                        </div>
-                    </a>
-                </li>
-                <li class="sold-out-item">
-                    <p class="sold-out">SOLD OUT!</p>
-                    <a href="#" class="product-grid">
-                        <img src="images/windbreaker.jpg" alt="yellow windbreaker jacket" class="product-img"> 
-                        <div class="product-title">
-                            <h3>WINDBREAKER</h3>
-                            <p>NOK 1499</p>
-                        </div>
-                        <div class="product-description">
-                            <p>Light weight jacket ideal for winter sports</p>
-                        </div>
-                    </a>
-                </li>
-            </ul>
-        </section>
+    </header>
+    <main>  
+        <div class="product-img">
+            <img src="images/blue-puffed.jpg" alt="blue puffed men's jacket" class="jacket">
+        </div>
+        <div class="product-info">
+            <div class="jacket-title">
+                <h1>BLUE JACKET</h1>
+                <p>NOK 1499</p>
+            </div>
+            <div class="reviews">
+                <img src="images/star.svg" alt="star">
+                <img src="images/star.svg" alt="star">
+                <img src="images/star.svg" alt="star">
+                <img src="images/star.svg" alt="star">
+                <span><strong>4.5/5</strong> 289 Reviews</span>
+            </div>
+            <div class="product-description">
+                <p>Stay warm and dry no matter the weather with this insulated puffy jacket. Designed for easy outdoor adventures like trail hiking, snowshoeing, and weekend camping trips. Great for chilly city walks or relaxing by a campfire after a day outside. Soft, lightweight, and weather-ready, it's the perfect companion for cold days outdoors.</p>
+            </div>
+            <div class="product-materials">
+                <h3>Materials</h3>
+                <ul>
+                    <li>50% cotton, 50% polyester (outer layer)</li>
+                    <li>100% polyester (insulation and lining)</li>
+                </ul>
+            </div>
+            <div class="size-selector">
+                <h3>Choose size</h3>
+                <div class="size-options">
+                    <input type="radio" name="size" id="men-xs" disabled>
+                    <label for="men-xs" class="size-btn">XS</label>
+
+                    <input type="radio" name="size" id="men-s" disabled>
+                    <label for="men-s" class="size-btn">S</label>
+
+                    <input type="radio" name="size" id="men-m" disabled>
+                    <label for="men-m" class="size-btn">M</label>
+
+                    <input type="radio" name="size" id="men-l" disabled>
+                    <label for="men-l" class="size-btn">L</label>
+
+                    <input type="radio" name="size" id="men-xl" disabled>
+                    <label for="men-xl" class="size-btn">XL</label>
+                </div>
+            </div>
+            <button class="btn-cart disabled">Add to cart</button>
+            <div class="purchase-information">
+                <h3>Information</h3>
+                <ul>
+                    <li>Free return within 30 days of delivery</li>
+                    <li>Taxes included in the subtotal</li>
+                </ul>
+            </div>
+        </div>
     </main>
-    <footer>
+        <footer>
         <div class="footer-top">
             <div class="footer-brand">
                 <img src="images/footer-logo.png" alt="rainydays logo">
