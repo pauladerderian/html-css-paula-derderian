@@ -839,7 +839,8 @@ footer {
 
 .women-page h2,
 .men-page h2,
-.contact-info h2 {
+.contact-info h2,
+.homepage-products h2 {
     color: #1E1E1E;
     font-size: 24px;
     font-weight: bold;
