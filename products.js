@@ -60,14 +60,18 @@ function renderCartModal() {
     const basket = getBasket();
     const cartItemsList = document.getElementById("cart-items-list");
     const cartSubtotal = document.getElementById("cart-subtotal");
+    const checkoutBtn = document.getElementById("checkout-btn");
 
     cartItemsList.innerHTML = "";
 
     if (basket.length === 0) {
         cartItemsList.innerHTML = `<p class="loading-message">Your cart is empty.</p>`;
         cartSubtotal.textContent = "€0";
+        checkoutBtn.hidden = true;
         return;
     }
+
+    checkoutBtn.hidden = false;
 
     let subtotal = 0;
 
