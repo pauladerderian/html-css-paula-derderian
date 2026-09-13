@@ -1173,6 +1173,8 @@ footer {
 
 .jacket {
     display: block;
+    width: 100%;
+    max-width: 100%;
     height: auto;
     border-radius: 8px;
     margin-top: 100px;
@@ -1269,15 +1271,14 @@ footer {
 
 .size-options input[type="radio"]:checked + .size-btn {
     border-color: #1E1E1E;
-    color:#1E1E1E;
-    background-color: black;
+    background-color: #1E1E1E;
     color: white;
 }
 
 .size-btn {
     width: 92px;
     height: 48px;
-    border: 1px solid #1E1E1E20;
+    border: 1px solid #1E1E1E40;
     border-radius: 8px;
     background-color: white;
     font-family: inherit;
@@ -1287,6 +1288,13 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: border-color 0.2s, color 0.2s;
+}
+
+.size-options input[type="radio"]:not(:checked) + .size-btn:hover {
+    border-color: #1E1E1E;
+    background-color: #1E1E1E;
+    color: white;
 }
 
 .size-btn.disabled {
