@@ -28,7 +28,7 @@ function createProductCard(product) {
         : `<span class="product-gender product-gender--${product.gender.toLowerCase()}">${product.gender}</span>`;
 
     li.innerHTML = `
-        <a href="#" class="product-grid">
+        <a href="product.html?id=${product.id}" class="product-grid">
             ${genderBadge}
             <img src="${product.image.url}" alt="${product.image.alt}">
             <div class="product-title">
@@ -192,6 +192,75 @@ function renderProductsError(containerId) {
     container.innerHTML = `<li><p class="error-message">Something went wrong loading products. Please try again later.</p></li>`;
 }
 
+const SIZE_ORDER = ["XS", "S", "M", "L", "XL", "XXL"];
+
+function renderProductDetail(products) {
+    const params = new URLSearchParams(window.location.search);
+    const productId = params.get("id");
+    const product = products.find((p) => p.id === productId);
+
+    if (!product) {
+        renderProductDetailError();
+        return;
+    }
+
+    document.body.classList.add(
+        product.gender === "Female" ? "women-product-page" : "men-product-page"
+    );
+
+    document.title = product.title;
+
+    const image = document.getElementById("product-image");
+    image.src = product.image.url;
+    image.alt = product.image.alt;
+
+    document.getElementById("product-title").textContent = product.title;
+    document.getElementById("product-price").textContent = `€${product.price}`;
+    document.getElementById("product-description").textContent = product.description;
+
+    const sizeOptions = document.getElementById("size-options");
+
+    sizeOptions.innerHTML = SIZE_ORDER.map((size) => {
+        const available = product.sizes.includes(size);
+        const inputId = `size-${size}`;
+
+        return `
+            <input type="radio" name="size" id="${inputId}" value="${size}" ${available ? "" : "disabled"}>
+            <label for="${inputId}" class="size-btn${available ? "" : " disabled"}">${size}</label>
+        `;
+    }).join("");
+
+    const sizeErrorMessage = document.getElementById("size-error-message");
+    const addToCartBtn = document.getElementById("product-add-to-cart");
+
+    addToCartBtn.addEventListener("click", () => {
+        const selectedSize = sizeOptions.querySelector('input[name="size"]:checked');
+
+        if (!selectedSize) {
+            if (sizeErrorMessage) {
+                sizeErrorMessage.hidden = false;
+            }
+            return;
+        }
+
+        if (sizeErrorMessage) {
+            sizeErrorMessage.hidden = true;
+        }
+
+        addToBasket(product.id, selectedSize.value);
+    });
+}
+
+function renderProductDetailError() {
+    const main = document.querySelector(".product-page main");
+
+    if (!main) {
+        return;
+    }
+
+    main.innerHTML = `<p class="error-message">Something went wrong loading this product. Please try again later.</p>`;
+}
+
 function getFeaturedProducts(products) {
     const femaleProducts = products.filter((p) => p.gender === "Female");
     const maleProducts = products.filter((p) => p.gender === "Male");
@@ -232,6 +301,7 @@ function showToast() {
 
 const productList = document.getElementById("homepage-product-list");
 const genderProductList = document.getElementById("product-list");
+const isProductPage = document.body.classList.contains("product-page");
 
 async function initProducts() {
     try {
@@ -263,6 +333,10 @@ async function initProducts() {
 
             renderProducts(genderProducts, "product-list");
         }
+
+        if (isProductPage) {
+            renderProductDetail(products);
+        }
     } catch (error) {
         console.error("Error loading products:", error);
 
@@ -272,6 +346,10 @@ async function initProducts() {
 
         if (genderProductList) {
             renderProductsError("product-list");
+        }
+
+        if (isProductPage) {
+            renderProductDetailError();
         }
     }
 

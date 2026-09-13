@@ -1296,6 +1296,11 @@ footer {
     pointer-events: none;
 }
 
+.size-error-message {
+    color: #b3261e;
+    font-size: 14px;
+}
+
 .checkout-form {
     flex: 0 1 560px;
     display: flex;
