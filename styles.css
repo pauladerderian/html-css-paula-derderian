@@ -292,6 +292,7 @@ header {
 
 .cart-modal-content a.btn-cart {
     height: 64px;
+    flex-shrink: 0;
 }
 
 /* cart modal top */
@@ -300,6 +301,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-shrink: 0;
 }
 
 .cart-modal-content h2 {
@@ -405,6 +407,7 @@ header {
     flex-direction: column;
     gap: 8px;
     padding: 24px 24px;
+    flex-shrink: 0;
 }
 
 .cart-subtotal-row {
@@ -427,6 +430,10 @@ header {
     font-size: 14px;
     font-weight: bold;
     margin-bottom: 16px;
+}
+
+.cart-information {
+    flex-shrink: 0;
 }
 
 .cart-information ul {
