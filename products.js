@@ -16,8 +16,13 @@ async function getAllProducts() {
 function createProductCard(product) {
     const li = document.createElement("li");
 
+    const sizeOptions = product.sizes
+        .map((size) => `<option value="${size}">${size}</option>`)
+        .join("");
+
     li.innerHTML = `
         <a href="#" class="product-grid">
+            <span class="product-gender product-gender--${product.gender.toLowerCase()}">${product.gender}</span>
             <img src="${product.image.url}" alt="${product.image.alt}">
             <div class="product-title">
                 <h3>${product.title}</h3>
@@ -27,16 +32,23 @@ function createProductCard(product) {
                 <p>${product.description}</p>
             </div>
         </a>
+        <div class="size-select-wrap">
+            <select class="size-select" aria-label="Select size for ${product.title}">
+                <option value="" disabled selected>Select size</option>
+                ${sizeOptions}
+            </select>
+        </div>
         <button class="btn-cart" data-id="${product.id}">Add to Cart</button>
     `;
 
     return li;
 }
 
-function createCartItem(product, quantity) {
+function createCartItem(product, quantity, size) {
     const div = document.createElement("div");
     div.className = "cart-item";
     div.dataset.id = product.id;
+    div.dataset.size = size;
 
     div.innerHTML = `
         <img src="${product.image.url}" alt="${product.image.alt}">
@@ -45,6 +57,7 @@ function createCartItem(product, quantity) {
                 <p class="cart-item-name">${product.title}</p>
                 <p class="cart-item-price">€${product.price}</p>
             </div>
+            <p class="cart-item-size">Size: ${size}</p>
             <div class="cart-quantity">
                 <button class="qty-btn" data-action="decrease">-</button>
                 <span class="qty-count">${quantity}</span>
@@ -82,7 +95,7 @@ function renderCartModal() {
             return;
         }
 
-        const cartItem = createCartItem(product, item.quantity);
+        const cartItem = createCartItem(product, item.quantity, item.size);
         cartItemsList.appendChild(cartItem);
 
         subtotal += product.price * item.quantity;
@@ -100,25 +113,30 @@ function saveBasket(basket) {
     localStorage.setItem("basket", JSON.stringify(basket));
 }
 
-function addToBasket(productId) {
+function addToBasket(productId, size) {
     const basket = getBasket();
 
-    const existingItem = basket.find((item) => item.id === productId);
+    const existingItem = basket.find(
+        (item) => item.id === productId && item.size === size
+    );
 
     if (existingItem) {
         existingItem.quantity++;
     } else {
-        basket.push({ id: productId, quantity: 1 });
+        basket.push({ id: productId, size, quantity: 1 });
     }
 
     saveBasket(basket);
     updateCartCount();
     renderCartModal();
+    showToast();
 }
 
-function updateQuantity(productId, action) {
+function updateQuantity(productId, size, action) {
     const basket = getBasket();
-    const item = basket.find((item) => item.id === productId);
+    const item = basket.find(
+        (item) => item.id === productId && item.size === size
+    );
 
     if (!item) {
         return;
@@ -137,11 +155,42 @@ function updateQuantity(productId, action) {
     renderCartModal();
 }
 
+function getFeaturedProducts(products) {
+    const femaleProducts = products.filter((p) => p.gender === "Female");
+    const maleProducts = products.filter((p) => p.gender === "Male");
+
+    const featured = [...femaleProducts.slice(0, 2), ...maleProducts.slice(0, 2)];
+
+    if (featured.length < 4) {
+        const remaining = products.filter((p) => !featured.includes(p));
+        featured.push(...remaining.slice(0, 4 - featured.length));
+    }
+
+    return featured;
+}
+
 function updateCartCount() {
     const basket = getBasket();
     const totalItems = basket.reduce((total, item) => total + item.quantity, 0);
     const cartCountElement = document.querySelector(".cart-count");
     cartCountElement.textContent = totalItems;
+}
+
+let toastTimeoutId;
+
+function showToast() {
+    const toast = document.getElementById("toast");
+
+    if (!toast) {
+        return;
+    }
+
+    toast.classList.add("toast-visible");
+
+    clearTimeout(toastTimeoutId);
+    toastTimeoutId = setTimeout(() => {
+        toast.classList.remove("toast-visible");
+    }, 2000);
 }
 
 const productList = document.getElementById("homepage-product-list");
@@ -152,7 +201,7 @@ getAllProducts().then((products) => {
     if (productList) {
         productList.innerHTML = "";
 
-        const featuredProducts = products.slice(0, 4);
+        const featuredProducts = getFeaturedProducts(products);
 
         featuredProducts.forEach((product) => {
             const card = createProductCard(product);
@@ -171,8 +220,20 @@ if (productList) {
             return;
         }
 
+        const li = button.closest("li");
+        const sizeSelect = li.querySelector(".size-select");
+        const size = sizeSelect.value;
+
+        if (!size) {
+            sizeSelect.classList.add("size-select-error");
+            sizeSelect.focus();
+            return;
+        }
+
+        sizeSelect.classList.remove("size-select-error");
+
         const productId = button.dataset.id;
-        addToBasket(productId);
+        addToBasket(productId, size);
     });
 }
 
@@ -187,9 +248,10 @@ cartItemsList.addEventListener("click", (event) => {
 
     const cartItem = button.closest(".cart-item");
     const productId = cartItem.dataset.id;
+    const size = cartItem.dataset.size;
     const action = button.dataset.action;
 
-    updateQuantity(productId, action);
+    updateQuantity(productId, size, action);
 });
 
 updateCartCount();
