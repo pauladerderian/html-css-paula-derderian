@@ -1,4 +1,6 @@
 const PRODUCTS_API_URL = "https://v2.api.noroff.dev/rainy-days";
+let allProducts = [];
+
 async function getAllProducts() {
     try {
         const response = await fetch(PRODUCTS_API_URL);
@@ -8,9 +10,9 @@ async function getAllProducts() {
     } catch (error) {
         console.error("Error fetching products:", error);
         return [];
-
     }
 }
+
 function createProductCard(product) {
     const li = document.createElement("li");
 
@@ -34,6 +36,7 @@ function createProductCard(product) {
 function createCartItem(product, quantity) {
     const div = document.createElement("div");
     div.className = "cart-item";
+    div.dataset.id = product.id;
 
     div.innerHTML = `
         <img src="${product.image.url}" alt="${product.image.alt}">
@@ -43,9 +46,9 @@ function createCartItem(product, quantity) {
                 <p class="cart-item-price">€${product.price}</p>
             </div>
             <div class="cart-quantity">
-                <button class="qty-btn">-</button>
+                <button class="qty-btn" data-action="decrease">-</button>
                 <span class="qty-count">${quantity}</span>
-                <button class="qty-btn">+</button>
+                <button class="qty-btn" data-action="increase">+</button>
             </div>
         </div>
     `;
@@ -53,7 +56,7 @@ function createCartItem(product, quantity) {
     return div;
 }
 
-async function renderCartModal() {
+function renderCartModal() {
     const basket = getBasket();
     const cartItemsList = document.getElementById("cart-items-list");
     const cartSubtotal = document.getElementById("cart-subtotal");
@@ -66,11 +69,10 @@ async function renderCartModal() {
         return;
     }
 
-    const products = await getAllProducts();
     let subtotal = 0;
 
     basket.forEach((item) => {
-        const product = products.find((p) => p.id === item.id);
+        const product = allProducts.find((p) => p.id === item.id);
 
         if (!product) {
             return;
@@ -84,30 +86,6 @@ async function renderCartModal() {
 
     cartSubtotal.textContent = `€${subtotal.toFixed(2)}`;
 }
-
-const productList = document.getElementById("homepage-product-list");
-
-getAllProducts().then((products) => {
-    productList.innerHTML = "";
-
-    const featuredProducts = products.slice(0, 4);
-
-    featuredProducts.forEach((product) => {
-        const card = createProductCard(product);
-        productList.appendChild(card);
-    });
-});
-
-productList.addEventListener("click", (event) => {
-    const button = event.target.closest(".btn-cart");
-
-    if (!button) {
-        return;
-    }
-
-    const productId = button.dataset.id;
-    addToBasket(productId);
-});
 
 function getBasket() {
     const basket = localStorage.getItem("basket");
@@ -134,6 +112,27 @@ function addToBasket(productId) {
     renderCartModal();
 }
 
+function updateQuantity(productId, action) {
+    const basket = getBasket();
+    const item = basket.find((item) => item.id === productId);
+
+    if (!item) {
+        return;
+    }
+
+    if (action === "increase") {
+        item.quantity++;
+    } else if (action === "decrease") {
+        item.quantity--;
+    }
+
+    const updatedBasket = basket.filter((item) => item.quantity > 0);
+
+    saveBasket(updatedBasket);
+    updateCartCount();
+    renderCartModal();
+}
+
 function updateCartCount() {
     const basket = getBasket();
     const totalItems = basket.reduce((total, item) => total + item.quantity, 0);
@@ -141,5 +140,48 @@ function updateCartCount() {
     cartCountElement.textContent = totalItems;
 }
 
+const productList = document.getElementById("homepage-product-list");
+
+getAllProducts().then((products) => {
+    allProducts = products;
+
+    productList.innerHTML = "";
+
+    const featuredProducts = products.slice(0, 4);
+
+    featuredProducts.forEach((product) => {
+        const card = createProductCard(product);
+        productList.appendChild(card);
+    });
+
+    renderCartModal();
+});
+
+productList.addEventListener("click", (event) => {
+    const button = event.target.closest(".btn-cart");
+
+    if (!button) {
+        return;
+    }
+
+    const productId = button.dataset.id;
+    addToBasket(productId);
+});
+
+const cartItemsList = document.getElementById("cart-items-list");
+
+cartItemsList.addEventListener("click", (event) => {
+    const button = event.target.closest(".qty-btn");
+
+    if (!button) {
+        return;
+    }
+
+    const cartItem = button.closest(".cart-item");
+    const productId = cartItem.dataset.id;
+    const action = button.dataset.action;
+
+    updateQuantity(productId, action);
+});
+
 updateCartCount();
-renderCartModal();
