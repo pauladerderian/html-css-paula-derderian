@@ -2,15 +2,14 @@ const PRODUCTS_API_URL = "https://v2.api.noroff.dev/rainy-days";
 let allProducts = [];
 
 async function getAllProducts() {
-    try {
-        const response = await fetch(PRODUCTS_API_URL);
-        const result = await response.json();
-        const products = result.data;
-        return products;
-    } catch (error) {
-        console.error("Error fetching products:", error);
-        return [];
+    const response = await fetch(PRODUCTS_API_URL);
+
+    if (!response.ok) {
+        throw new Error(`Failed to fetch products (status ${response.status})`);
     }
+
+    const result = await response.json();
+    return result.data;
 }
 
 function createProductCard(product) {
@@ -235,33 +234,45 @@ const productList = document.getElementById("homepage-product-list");
 const genderProductList = document.getElementById("product-list");
 
 async function initProducts() {
-    const products = await getAllProducts();
+    try {
+        const products = await getAllProducts();
 
-    allProducts = products;
+        allProducts = products;
 
-    if (productList) {
-        productList.innerHTML = "";
+        if (productList) {
+            productList.innerHTML = "";
 
-        const featuredProducts = getFeaturedProducts(products);
+            const featuredProducts = getFeaturedProducts(products);
 
-        featuredProducts.forEach((product) => {
-            const card = createProductCard(product);
-            productList.appendChild(card);
-        });
-    }
+            featuredProducts.forEach((product) => {
+                const card = createProductCard(product);
+                productList.appendChild(card);
+            });
+        }
 
-    if (genderProductList) {
-        const gender = document.body.classList.contains("women-page")
-            ? "Female"
-            : document.body.classList.contains("men-page")
-            ? "Male"
-            : null;
+        if (genderProductList) {
+            const gender = document.body.classList.contains("women-page")
+                ? "Female"
+                : document.body.classList.contains("men-page")
+                ? "Male"
+                : null;
 
-        const genderProducts = gender
-            ? products.filter((product) => product.gender === gender)
-            : products;
+            const genderProducts = gender
+                ? products.filter((product) => product.gender === gender)
+                : products;
 
-        renderProducts(genderProducts, "product-list");
+            renderProducts(genderProducts, "product-list");
+        }
+    } catch (error) {
+        console.error("Error loading products:", error);
+
+        if (productList) {
+            renderProductsError("homepage-product-list");
+        }
+
+        if (genderProductList) {
+            renderProductsError("product-list");
+        }
     }
 
     renderCartModal();
