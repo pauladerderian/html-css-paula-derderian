@@ -234,7 +234,9 @@ function showToast() {
 const productList = document.getElementById("homepage-product-list");
 const genderProductList = document.getElementById("product-list");
 
-getAllProducts().then((products) => {
+async function initProducts() {
+    const products = await getAllProducts();
+
     allProducts = products;
 
     if (productList) {
@@ -263,7 +265,9 @@ getAllProducts().then((products) => {
     }
 
     renderCartModal();
-});
+}
+
+initProducts();
 
 document.addEventListener("click", (event) => {
     const button = event.target.closest(".btn-cart");
