@@ -149,28 +149,32 @@ const productList = document.getElementById("homepage-product-list");
 getAllProducts().then((products) => {
     allProducts = products;
 
-    productList.innerHTML = "";
+    if (productList) {
+        productList.innerHTML = "";
 
-    const featuredProducts = products.slice(0, 4);
+        const featuredProducts = products.slice(0, 4);
 
-    featuredProducts.forEach((product) => {
-        const card = createProductCard(product);
-        productList.appendChild(card);
-    });
+        featuredProducts.forEach((product) => {
+            const card = createProductCard(product);
+            productList.appendChild(card);
+        });
+    }
 
     renderCartModal();
 });
 
-productList.addEventListener("click", (event) => {
-    const button = event.target.closest(".btn-cart");
+if (productList) {
+    productList.addEventListener("click", (event) => {
+        const button = event.target.closest(".btn-cart");
 
-    if (!button) {
-        return;
-    }
+        if (!button) {
+            return;
+        }
 
-    const productId = button.dataset.id;
-    addToBasket(productId);
-});
+        const productId = button.dataset.id;
+        addToBasket(productId);
+    });
+}
 
 const cartItemsList = document.getElementById("cart-items-list");
 
