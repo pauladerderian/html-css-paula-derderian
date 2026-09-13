@@ -869,6 +869,11 @@ footer {
     padding-top: 24px;
 }
 
+.products-jackets .btn-cart {
+    display: flex;
+    margin: 24px auto 0;
+}
+
 .product-grid {
     display: flex;
     flex-direction: column;
