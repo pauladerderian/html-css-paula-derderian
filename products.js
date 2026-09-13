@@ -111,6 +111,62 @@ function renderCartModal() {
     cartSubtotal.textContent = `€${subtotal.toFixed(2)}`;
 }
 
+function renderCheckoutSummary() {
+    const orderItemsList = document.getElementById("order-items-list");
+    const summarySubtotal = document.getElementById("summary-subtotal");
+
+    if (!orderItemsList || !summarySubtotal) {
+        return;
+    }
+
+    const basket = getBasket();
+
+    orderItemsList.innerHTML = "";
+
+    if (basket.length === 0) {
+        orderItemsList.innerHTML = `<p class="loading-message">Your cart is empty.</p>`;
+        summarySubtotal.textContent = "€0";
+    } else {
+        let subtotal = 0;
+
+        basket.forEach((item) => {
+            const product = allProducts.find((p) => p.id === item.id);
+
+            if (!product) {
+                return;
+            }
+
+            const orderItem = document.createElement("div");
+            orderItem.className = "order-item";
+
+            orderItem.innerHTML = `
+                <img src="${product.image.url}" alt="${product.image.alt}">
+                <div class="order-item-details">
+                    <div class="order-item-row">
+                        <p><strong>QTY. ${item.quantity}</strong></p>
+                        <p><strong>€${(product.price * item.quantity).toFixed(2)}</strong></p>
+                    </div>
+                    <div class="order-item-row">
+                        <p><strong>${product.title}</strong></p>
+                        <p>${product.gender.toUpperCase()}</p>
+                        <p>SIZE: ${item.size}</p>
+                    </div>
+                </div>
+            `;
+
+            orderItemsList.appendChild(orderItem);
+
+            subtotal += product.price * item.quantity;
+        });
+
+        summarySubtotal.textContent = `€${subtotal.toFixed(2)}`;
+    }
+
+    if (typeof window.refreshCheckoutTotals === "function") {
+        window.refreshCheckoutTotals();
+    }
+}
+
 function getBasket() {
     const basket = localStorage.getItem("basket");
     return basket ? JSON.parse(basket) : [];
@@ -354,6 +410,7 @@ async function initProducts() {
     }
 
     renderCartModal();
+    renderCheckoutSummary();
 }
 
 initProducts();
