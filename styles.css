@@ -882,6 +882,12 @@ footer {
         flex: 0 0 calc(25% - 30px);
         min-width: 220px;
     }
+
+    .women-page .products-jackets li,
+    .men-page .products-jackets li {
+    flex: 0 0 calc(33.333% - 26.67px);
+    min-width: 260px;
+}
 }
 
 

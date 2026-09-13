@@ -20,9 +20,17 @@ function createProductCard(product) {
         .map((size) => `<option value="${size}">${size}</option>`)
         .join("");
 
+    const isGenderSpecificPage =
+        document.body.classList.contains("women-page") ||
+        document.body.classList.contains("men-page");
+
+    const genderBadge = isGenderSpecificPage
+        ? ""
+        : `<span class="product-gender product-gender--${product.gender.toLowerCase()}">${product.gender}</span>`;
+
     li.innerHTML = `
         <a href="#" class="product-grid">
-            <span class="product-gender product-gender--${product.gender.toLowerCase()}">${product.gender}</span>
+            ${genderBadge}
             <img src="${product.image.url}" alt="${product.image.alt}">
             <div class="product-title">
                 <h3>${product.title}</h3>
@@ -155,6 +163,36 @@ function updateQuantity(productId, size, action) {
     renderCartModal();
 }
 
+function renderProducts(products, containerId) {
+    const container = document.getElementById(containerId);
+
+    if (!container) {
+        return;
+    }
+
+    container.innerHTML = "";
+
+    if (products.length === 0) {
+        container.innerHTML = `<li><p class="loading-message">No products found.</p></li>`;
+        return;
+    }
+
+    products.forEach((product) => {
+        const card = createProductCard(product);
+        container.appendChild(card);
+    });
+}
+
+function renderProductsError(containerId) {
+    const container = document.getElementById(containerId);
+
+    if (!container) {
+        return;
+    }
+
+    container.innerHTML = `<li><p class="error-message">Something went wrong loading products. Please try again later.</p></li>`;
+}
+
 function getFeaturedProducts(products) {
     const femaleProducts = products.filter((p) => p.gender === "Female");
     const maleProducts = products.filter((p) => p.gender === "Male");
@@ -194,6 +232,7 @@ function showToast() {
 }
 
 const productList = document.getElementById("homepage-product-list");
+const genderProductList = document.getElementById("product-list");
 
 getAllProducts().then((products) => {
     allProducts = products;
@@ -209,33 +248,50 @@ getAllProducts().then((products) => {
         });
     }
 
+    if (genderProductList) {
+        const gender = document.body.classList.contains("women-page")
+            ? "Female"
+            : document.body.classList.contains("men-page")
+            ? "Male"
+            : null;
+
+        const genderProducts = gender
+            ? products.filter((product) => product.gender === gender)
+            : products;
+
+        renderProducts(genderProducts, "product-list");
+    }
+
     renderCartModal();
 });
 
-if (productList) {
-    productList.addEventListener("click", (event) => {
-        const button = event.target.closest(".btn-cart");
+document.addEventListener("click", (event) => {
+    const button = event.target.closest(".btn-cart");
 
-        if (!button) {
-            return;
-        }
+    if (!button || !button.dataset.id) {
+        return;
+    }
 
-        const li = button.closest("li");
-        const sizeSelect = li.querySelector(".size-select");
-        const size = sizeSelect.value;
+    const li = button.closest("li");
+    const sizeSelect = li ? li.querySelector(".size-select") : null;
 
-        if (!size) {
-            sizeSelect.classList.add("size-select-error");
-            sizeSelect.focus();
-            return;
-        }
+    if (!sizeSelect) {
+        return;
+    }
 
-        sizeSelect.classList.remove("size-select-error");
+    const size = sizeSelect.value;
 
-        const productId = button.dataset.id;
-        addToBasket(productId, size);
-    });
-}
+    if (!size) {
+        sizeSelect.classList.add("size-select-error");
+        sizeSelect.focus();
+        return;
+    }
+
+    sizeSelect.classList.remove("size-select-error");
+
+    const productId = button.dataset.id;
+    addToBasket(productId, size);
+});
 
 const cartItemsList = document.getElementById("cart-items-list");
 
