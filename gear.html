@@ -74,34 +74,18 @@
                         <h2>Cart</h2>
                         <label for="cart-toggle" class="cart-close">x</label>
                     </div>
-                    <!-- cart item -->
-                    <div class="cart-item">
-                        <img src="images/brown-puffed.jpg" alt="Brown Puffed Jacket">
-                        <div class="cart-item-info">
-                            <div class="cart-item-top">
-                                <p class="cart-item-name">PUFFED JACKET</p>
-                                <p class="cart-item-price">NOK 1499</p>
-                            </div>
-                            <p class="cart-item-size">Size: M</p>
-                            <div class="cart-quantity">
-                                <button class="qty-btn">-</button>
-                                <span class="qty-count">0</span>
-                                <button class="qty-btn">+</button>
-                            </div>
-                        </div>
-                    </div>
-
+                    <!-- cart items get inserted here by JavaScript -->
+                    <div class="cart-items-list" id="cart-items-list"></div>
                     <!-- subtotal -->
                     <div class="cart-subtotal">
                         <div class="cart-subtotal-row">
                             <p>SUBTOTAL:</p>
-                            <p>NOK 0</p>
+                            <p id="cart-subtotal">€0</p>
                         </div>
                         <p class="cart-delivery">Delivery calculated at checkout</p>
                     </div>
                     <!-- go to checkout button -->
                     <a href="checkout.html" class="btn-cart">Go to Checkout</a>
-
                     <!-- information -->
                     <div class="cart-information">
                         <h3>Information</h3>
