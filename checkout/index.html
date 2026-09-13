@@ -70,27 +70,13 @@
                         <h2>Cart</h2>
                         <label for="cart-toggle" class="cart-close">x</label>
                     </div>
-                    <!-- cart item -->
-                    <div class="cart-item">
-                        <img src="../images/brown-puffed.jpg" alt="Brown Puffed Jacket">
-                        <div class="cart-item-info">
-                            <div class="cart-item-top">
-                                <p class="cart-item-name">PUFFED JACKET</p>
-                                <p class="cart-item-price">NOK 1499</p>
-                            </div>
-                            <p class="cart-item-size">Size: M</p>
-                            <div class="cart-quantity">
-                                <button class="qty-btn">-</button>
-                                <span class="qty-count">0</span>
-                                <button class="qty-btn">+</button>
-                            </div>
-                        </div>
-                    </div>
+                    <!-- cart items get inserted here by JavaScript -->
+                    <div class="cart-items-list" id="cart-items-list"></div>
                     <!-- subtotal -->
                     <div class="cart-subtotal">
                         <div class="cart-subtotal-row">
                             <p>SUBTOTAL:</p>
-                            <p>NOK 0</p>
+                            <p id="cart-subtotal">€0</p>
                         </div>
                         <p class="cart-delivery">Delivery calculated at checkout</p>
                     </div>
@@ -268,39 +254,26 @@
     <!-- Right Column (stays visible across all steps) -->
     <div class="checkout-sidebar">
         <div class="order-summary">
-            <h2>Order summary</h2>
-            <div class="order-item">
-                <img src="../images/brown-puffed.jpg" alt="brown puffed jacket women">
-                <div class="order-item-details">
-                    <div class="order-item-row">
-                        <p><strong>QTY.  0</strong></p>
-                        <p><strong>NOK  0</strong></p>
-                    </div>
-                    <div class="order-item-row">
-                        <p><strong>PUFFED JACKET</strong></p>
-                        <p>WOMEN</p>
-                        <p>SIZE: M</p>
-                    </div>
-                </div>
-            </div>
+        <h2>Order summary</h2>
+        <!-- order items (filled in by products.js from the real basket) -->
+            <div id="order-items-list"></div>
             <div class="order-totals">
                 <div class="order-row">
                     <p>Subtotal</p>
-                    <p id="summary-subtotal">0</p>
+                    <p id="summary-subtotal">€0</p>
                 </div>
                 <div class="order-row">
-                    <p>Shipping</p>
-                    <p id="summary-shipping">—</p>
-                </div>
-                <div class="order-row order-total">
-                    <h4>TOTAL</h4>
-                    <div class="total-price">
-                        <p><strong>NOK</strong></p>
-                        <p id="summary-total">0</p>
-                    </div>
+                <p>Shipping</p>
+                <p id="summary-shipping">—</p>
+            </div>
+            <div class="order-row order-total">
+                <h4>TOTAL</h4>
+                <div class="total-price">
+                    <p id="summary-total">€0</p>
                 </div>
             </div>
         </div>
+    </div>
         <div class="purchase-information">
             <ul>
                 <li>Free return within 30 days of delivery</li>
