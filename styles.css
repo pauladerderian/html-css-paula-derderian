@@ -290,6 +290,10 @@ header {
     overflow-y: auto;
 }
 
+.cart-modal-content a.btn-cart {
+    height: 64px;
+}
+
 /* cart modal top */
 
 .cart-header {
@@ -329,9 +333,9 @@ header {
 }
 
 .cart-item img {
-    width: 167px;
-    height: 240px;
-    object-fit: cover;
+    width: 90px;
+    height: 110px;
+    object-fit: contain;
     border-radius: 8px;
     flex-shrink: 0;
 }

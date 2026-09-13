@@ -31,6 +31,60 @@ function createProductCard(product) {
     return li;
 }
 
+function createCartItem(product, quantity) {
+    const div = document.createElement("div");
+    div.className = "cart-item";
+
+    div.innerHTML = `
+        <img src="${product.image.url}" alt="${product.image.alt}">
+        <div class="cart-item-info">
+            <div class="cart-item-top">
+                <p class="cart-item-name">${product.title}</p>
+                <p class="cart-item-price">€${product.price}</p>
+            </div>
+            <div class="cart-quantity">
+                <button class="qty-btn">-</button>
+                <span class="qty-count">${quantity}</span>
+                <button class="qty-btn">+</button>
+            </div>
+        </div>
+    `;
+
+    return div;
+}
+
+async function renderCartModal() {
+    const basket = getBasket();
+    const cartItemsList = document.getElementById("cart-items-list");
+    const cartSubtotal = document.getElementById("cart-subtotal");
+
+    cartItemsList.innerHTML = "";
+
+    if (basket.length === 0) {
+        cartItemsList.innerHTML = `<p class="loading-message">Your cart is empty.</p>`;
+        cartSubtotal.textContent = "€0";
+        return;
+    }
+
+    const products = await getAllProducts();
+    let subtotal = 0;
+
+    basket.forEach((item) => {
+        const product = products.find((p) => p.id === item.id);
+
+        if (!product) {
+            return;
+        }
+
+        const cartItem = createCartItem(product, item.quantity);
+        cartItemsList.appendChild(cartItem);
+
+        subtotal += product.price * item.quantity;
+    });
+
+    cartSubtotal.textContent = `€${subtotal.toFixed(2)}`;
+}
+
 const productList = document.getElementById("homepage-product-list");
 
 getAllProducts().then((products) => {
@@ -77,6 +131,7 @@ function addToBasket(productId) {
 
     saveBasket(basket);
     updateCartCount();
+    renderCartModal();
 }
 
 function updateCartCount() {
@@ -87,3 +142,4 @@ function updateCartCount() {
 }
 
 updateCartCount();
+renderCartModal();
