@@ -849,6 +849,11 @@ footer {
     text-shadow: none;
 }
 
+.homepage-products .products-jackets li {
+    flex: 0 0 calc(25% - 30px);
+    min-width: 220px;
+}
+
 .products-jackets {
     display: flex;
     flex-direction: row;
@@ -874,6 +879,13 @@ footer {
     width: 100%;
 }
 
+.product-grid img {
+    width: 100%;
+    height: 360px;
+    object-fit contain;
+    border-radius: 8px;
+}
+
 .product-title {
     display: flex;
     flex-direction: row;
@@ -889,10 +901,18 @@ footer {
     font-weight: bold;
 }
 
+.product-description {
+    width: 100%;
+    min-width: 0;
+}
+
 .product-description p {
     font-size: 14px;
     font-weight: normal;
     width: 100%;
+    white-space: normal;
+    overflow-wrap: break-word;
+    line-height: 1.7;
 }
 
 .sold-out {
