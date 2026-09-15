@@ -360,6 +360,33 @@ const genderProductList = document.getElementById("product-list");
 const isProductPage = document.body.classList.contains("product-page");
 
 async function initProducts() {
+    // Show loading indicators immediately, before the fetch even starts.
+    if (productList) {
+        productList.innerHTML = `<li><p class="loading-message">Loading products...</p></li>`;
+    }
+
+    if (genderProductList) {
+        genderProductList.innerHTML = `<li><p class="loading-message">Loading products...</p></li>`;
+    }
+
+    if (isProductPage) {
+        const titleEl = document.getElementById("product-title");
+        const descriptionEl = document.getElementById("product-description");
+
+        if (titleEl) titleEl.textContent = "Loading...";
+        if (descriptionEl) descriptionEl.textContent = "Loading product details...";
+    }
+
+    const cartItemsListEl = document.getElementById("cart-items-list");
+    if (cartItemsListEl) {
+        cartItemsListEl.innerHTML = `<p class="loading-message">Loading your cart...</p>`;
+    }
+
+    const orderItemsListEl = document.getElementById("order-items-list");
+    if (orderItemsListEl) {
+        orderItemsListEl.innerHTML = `<p class="loading-message">Loading your order...</p>`;
+    }
+
     try {
         const products = await getAllProducts();
 
