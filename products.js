@@ -1,6 +1,11 @@
 const PRODUCTS_API_URL = "https://v2.api.noroff.dev/rainy-days";
 let allProducts = [];
 
+// Category pages (women.html, men.html) now live one folder deeper, so the link to the product detail page needs an
+// extra "../" when generated from there.
+const isCategoryPage = window.location.pathname.includes("/category/");
+const PRODUCT_PAGE_URL = isCategoryPage ? "../product.html" : "product.html";
+
 async function getAllProducts() {
     const response = await fetch(PRODUCTS_API_URL);
 
@@ -28,7 +33,7 @@ function createProductCard(product) {
         : `<span class="product-gender product-gender--${product.gender.toLowerCase()}">${product.gender}</span>`;
 
     li.innerHTML = `
-        <a href="product.html?id=${product.id}" class="product-grid">
+        <a href="${PRODUCT_PAGE_URL}?id=${product.id}" class="product-grid">
             ${genderBadge}
             <img src="${product.image.url}" alt="${product.image.alt}">
             <div class="product-title">
