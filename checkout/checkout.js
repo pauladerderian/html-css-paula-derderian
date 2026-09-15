@@ -1,12 +1,5 @@
 // ===== CHECKOUT STEPPER =====
 // Handles the 3-step checkout flow: Shipping -> Payment -> Review
-// No frameworks, just plain DOM work.
-//
-// NOTE: the order summary box currently shows placeholder product data
-// (QTY 0 / NOK 0). Once the basket is wired up to localStorage (basket.js),
-// this file should read the real subtotal from there instead of the DOM —
-// the updateTotals() function below already reads whatever number is in
-// #summary-subtotal, so it will keep working once that value is real.
 
 document.addEventListener("DOMContentLoaded", () => {
     const steps = document.querySelectorAll(".checkout-step");
@@ -26,11 +19,16 @@ document.addEventListener("DOMContentLoaded", () => {
         return parseFloat(raw) || 0;
     }
 
-    function updateTotals() {
-        const subtotal = getSubtotal();
-        shippingEl.textContent = shippingCost > 0 ? `NOK ${shippingCost}.-` : "—";
-        totalEl.textContent = (subtotal + shippingCost).toFixed(0);
-    }
+function updateTotals() {
+    const subtotal = getSubtotal();
+    shippingEl.textContent = shippingCost > 0 ? `€${shippingCost}` : "—";
+    totalEl.textContent = `€${(subtotal + shippingCost).toFixed(2)}`;
+}
+
+// Let products.js trigger a recalculation once it fills in the real
+// subtotal (its fetch finishes after this DOMContentLoaded already ran).
+window.refreshCheckoutTotals = updateTotals;
+
 
     document.querySelectorAll('input[name="shipping"]').forEach((radio) => {
         radio.addEventListener("change", (event) => {
